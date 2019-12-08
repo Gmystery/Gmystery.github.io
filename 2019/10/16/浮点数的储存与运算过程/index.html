@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>浮点数的储存与运算过程 | Hexo</title>
+  <meta name="keywords" content=" Bin ">
+  <meta name="description" content="浮点数的储存与运算过程 | Hexo">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Web基础-jQuery语言jQuery简介什么是jQuery jQuery是一个优秀的JavaScript框架，一个轻量级的JS库 它封装了JS、CSS、DOM，提供了一致的、简洁的API 兼容CSS3，以及兼容各种浏览器 注意：jQuery 2.x 开始不再支持IE6&#x2F;7&#x2F;8  如何使用jQuery 引入jQuery的js文件 可以通过本地文件导入，或者通过网络中jQuery的js文件地址 使">
+<meta name="keywords" content="JS,JQ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web基础-jQuery语言">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;Web%E5%9F%BA%E7%A1%80-jQuery%E8%AF%AD%E8%A8%80&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Web基础-jQuery语言jQuery简介什么是jQuery jQuery是一个优秀的JavaScript框架，一个轻量级的JS库 它封装了JS、CSS、DOM，提供了一致的、简洁的API 兼容CSS3，以及兼容各种浏览器 注意：jQuery 2.x 开始不再支持IE6&#x2F;7&#x2F;8  如何使用jQuery 引入jQuery的js文件 可以通过本地文件导入，或者通过网络中jQuery的js文件地址 使">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-03T07:57:24.000Z">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>John Doe</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/yelog" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="facebook" href="https://www.facebook.com/faker.tops" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-facebook"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="instagram" href="https://www.facebook.com/faker.tops" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-instagram"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="reddit" href="https://www.reddit.com/user/yelog/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-reddit"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="weibo" href="http://weibo.com/u/2307534817" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="jianshu" href="https://www.jianshu.com/u/ff56736de7cf" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-jianshu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="zhihu" href="https://www.zhihu.com/people/jaytp/activities" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="oschina" href="https://my.oschina.net/yelog" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-oschina"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="email" href="mailto:jaytp@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="kugou" href="https://www.kugou.com/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-kugou"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="neteasemusic" href="https://music.163.com/#/user/home?id=88151013" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-neteasemusic"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(26)</small></div></li>
+    
+        
+            
+            <li><div data-rel="语言编程">语言编程<small>(14)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="计算机知识">计算机知识<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具环境">工具环境<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="项目练习">项目练习<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="生活记录">生活记录<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="结构算法">结构算法<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="26">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color5">Java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">HTTP</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Web</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">Eclipse</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">blog</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">MarkDown</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">tools</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">Environment</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">CSS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">HTML</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">JS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">JQ</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">XML</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Hardware</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">feeling</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Assembly</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Bin</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">学习笔记</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/JavaEE-Web%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E9%A1%BA%E5%BA%8F/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="JavaEE-Web开发学习顺序">JavaEE-Web开发学习顺序</span>
+            <span class="post-date" title="2019-11-11 08:00:00">2019/11/11</span>
+        </a>
+        
+        <a  class="计算机知识 "
+           href="/2019/11/10/HTTP%E5%8D%8F%E8%AE%AE%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3/"
+           data-tag="HTTP,Web"
+           data-author="" >
+            <span class="post-title" title="HTTP协议简单理解">HTTP协议简单理解</span>
+            <span class="post-date" title="2019-11-10 08:35:25">2019/11/10</span>
+        </a>
+        
+        <a  class="工具环境 "
+           href="/2019/11/01/Eclipse%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E4%B8%8E%E7%BB%8F%E9%AA%8C/"
+           data-tag="Java,Eclipse"
+           data-author="" >
+            <span class="post-title" title="Eclipse使用技巧与经验">Eclipse使用技巧与经验</span>
+            <span class="post-date" title="2019-11-01 07:34:39">2019/11/01</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java内存管理">Java内存管理</span>
+            <span class="post-date" title="2019-11-11 07:32:31">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%9F%BA%E7%A1%80-JavaSE(%E4%B8%8B)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java基础-JavaSE(下)">Java基础-JavaSE(下)</span>
+            <span class="post-date" title="2019-11-11 08:00:04">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%9F%BA%E7%A1%80-JavaSE(%E4%B8%8A)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java基础-JavaSE(上)">Java基础-JavaSE(上)</span>
+            <span class="post-date" title="2019-11-11 08:00:03">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%9F%BA%E7%A1%80-%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80(Basic)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java基础-语言基础(Basic)">Java基础-语言基础(Basic)</span>
+            <span class="post-date" title="2019-11-11 08:00:01">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%9F%BA%E7%A1%80-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1(OOP)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java基础-面向对象(OOP)">Java基础-面向对象(OOP)</span>
+            <span class="post-date" title="2019-11-11 08:00:02">2019/11/11</span>
+        </a>
+        
+        <a  class="项目练习 "
+           href="/2019/11/23/Java%E5%AE%9E%E8%B7%B5-%E8%81%8A%E5%A4%A9%E5%AE%A4(C-S%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java实践-聊天室(C/S网络编程)">Java实践-聊天室(C/S网络编程)</span>
+            <span class="post-date" title="2019-11-23 09:25:17">2019/11/23</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/23/Java%E5%AE%9E%E8%B7%B5-WebServer(%E4%BB%BFTomcat)/"
+           data-tag="Java,Web"
+           data-author="" >
+            <span class="post-title" title="Java实践-WebServer(仿Tomcat)">Java实践-WebServer(仿Tomcat)</span>
+            <span class="post-date" title="2019-11-23 11:45:17">2019/11/23</span>
+        </a>
+        
+        <a  class="项目练习 "
+           href="/2019/11/22/Java%E5%AE%9E%E8%B7%B5-%E9%A3%9E%E6%9C%BA%E5%A4%A7%E6%88%98/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java实践-飞机大战">Java实践-飞机大战</span>
+            <span class="post-date" title="2019-11-22 21:22:46">2019/11/22</span>
+        </a>
+        
+        <a  class="项目练习 "
+           href="/2019/11/22/Java%E7%BB%83%E4%B9%A0-%E9%9A%8F%E6%9C%BA%E8%AF%BB%E5%86%99-%E9%A1%BA%E5%BA%8F%E8%AF%BB%E5%86%99/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java练习-随机读写/顺序读写">Java练习-随机读写/顺序读写</span>
+            <span class="post-date" title="2019-11-22 22:45:17">2019/11/22</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/09/15/MarkDown%E9%80%9A%E7%94%A8%E8%AF%AD%E6%B3%95/"
+           data-tag="blog,MarkDown"
+           data-author="" >
+            <span class="post-title" title="MarkDown通用语法">MarkDown通用语法</span>
+            <span class="post-date" title="2019-09-15 09:20:39">2019/09/15</span>
+        </a>
+        
+        <a  class="工具环境 "
+           href="/2019/11/11/Maven%E5%85%A5%E9%97%A8%E4%B8%8E%E8%AE%A4%E8%AF%86/"
+           data-tag="tools,Environment"
+           data-author="" >
+            <span class="post-title" title="Maven入门与认识">Maven入门与认识</span>
+            <span class="post-date" title="2019-11-11 11:30:00">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Web%E5%9F%BA%E7%A1%80-CSS%E8%AF%AD%E8%A8%80/"
+           data-tag="Web,CSS"
+           data-author="" >
+            <span class="post-title" title="Web基础-CSS语言">Web基础-CSS语言</span>
+            <span class="post-date" title="2019-11-11 08:00:06">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Web%E5%9F%BA%E7%A1%80-HTML%E8%AF%AD%E8%A8%80/"
+           data-tag="Web,HTML"
+           data-author="" >
+            <span class="post-title" title="Web基础-HTML语言">Web基础-HTML语言</span>
+            <span class="post-date" title="2019-11-11 08:00:05">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/29/Web%E5%9F%BA%E7%A1%80-JavaScript%E8%AF%AD%E8%A8%80/"
+           data-tag="JS"
+           data-author="" >
+            <span class="post-title" title="Web基础-JavaScript语言">Web基础-JavaScript语言</span>
+            <span class="post-date" title="2019-11-29 09:05:20">2019/11/29</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/12/02/Web%E5%9F%BA%E7%A1%80-jQuery%E8%AF%AD%E8%A8%80/"
+           data-tag="JS,JQ"
+           data-author="" >
+            <span class="post-title" title="Web基础-jQuery语言">Web基础-jQuery语言</span>
+            <span class="post-date" title="2019-12-02 11:44:24">2019/12/02</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/15/XML%E5%8F%AF%E6%89%A9%E5%B1%95%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80/"
+           data-tag="XML"
+           data-author="" >
+            <span class="post-title" title="XML可扩展标记语言">XML可扩展标记语言</span>
+            <span class="post-date" title="2019-11-15 18:17:00">2019/11/15</span>
+        </a>
+        
+        <a  class="项目练习 "
+           href="/2019/09/15/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA-Hexo%E6%A1%86%E6%9E%B6/"
+           data-tag="blog"
+           data-author="" >
+            <span class="post-title" title="个人博客搭建-Hexo框架">个人博客搭建-Hexo框架</span>
+            <span class="post-date" title="2019-09-15 09:19:39">2019/09/15</span>
+        </a>
+        
+        <a  class="计算机知识 "
+           href="/2019/09/15/%E5%85%B3%E4%BA%8EUEFI%E4%B8%8EBIOS%E4%BB%A5%E5%8F%8AUEFI%E5%90%AF%E5%8A%A8%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F/"
+           data-tag="Hardware"
+           data-author="" >
+            <span class="post-title" title="关于UEFI与BIOS以及UEFI启动安装系统">关于UEFI与BIOS以及UEFI启动安装系统</span>
+            <span class="post-date" title="2019-09-15 10:20:39">2019/09/15</span>
+        </a>
+        
+        <a  class="生活记录 "
+           href="/2019/09/14/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/"
+           data-tag="blog,feeling"
+           data-author="" >
+            <span class="post-title" title="我的第一个博客">我的第一个博客</span>
+            <span class="post-date" title="2019-09-14 09:35:43">2019/09/14</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/10/11/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0(Assembly%20note)/"
+           data-tag="Hardware,Assembly"
+           data-author="" >
+            <span class="post-title" title="汇编语言语法笔记-Assembly">汇编语言语法笔记-Assembly</span>
+            <span class="post-date" title="2019-10-11 10:32:31">2019/10/11</span>
+        </a>
+        
+        <a  class="计算机知识 "
+           href="/2019/10/16/%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E5%82%A8%E5%AD%98%E4%B8%8E%E8%BF%90%E7%AE%97%E8%BF%87%E7%A8%8B/"
+           data-tag="Bin"
+           data-author="" >
+            <span class="post-title" title="浮点数的储存与运算过程">浮点数的储存与运算过程</span>
+            <span class="post-date" title="2019-10-16 09:35:43">2019/10/16</span>
+        </a>
+        
+        <a  class="计算机知识 "
+           href="/2019/10/16/%E7%A0%81%E8%A1%A8-ASC%E2%85%A1%E3%80%81Unicode%E3%80%81GBK/"
+           data-tag="Bin"
+           data-author="" >
+            <span class="post-title" title="码表-ASCⅡ、Unicode、GBK">码表-ASCⅡ、Unicode、GBK</span>
+            <span class="post-date" title="2019-10-16 09:34:43">2019/10/16</span>
+        </a>
+        
+        <a  class="结构算法 "
+           href="/2019/11/28/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AC%94%E8%AE%B0/"
+           data-tag="学习笔记"
+           data-author="" >
+            <span class="post-title" title="线性代数笔记">线性代数笔记</span>
+            <span class="post-date" title="2019-11-28 08:00:00">2019/11/28</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-浮点数的储存与运算过程" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">浮点数的储存与运算过程</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="计算机知识">计算机知识</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color4">Bin</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-11-11 10:36:22'>2019-10-16 09:35</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#浮点数的储存与运算过程"><span class="toc-text">浮点数的储存与运算过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#浮点数的储存"><span class="toc-text">浮点数的储存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#浮点数在计算机底层的存储方式"><span class="toc-text">浮点数在计算机底层的存储方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十进制与二进制的基本转换"><span class="toc-text">十进制与二进制的基本转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十进制浮点数在内存中存储实例"><span class="toc-text">十进制浮点数在内存中存储实例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浮点数的加减运算"><span class="toc-text">浮点数的加减运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实例：1-0F-0-42F在计算机底层的运算过程："><span class="toc-text">实例：1.0F-0.42F在计算机底层的运算过程：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第一步：指数低的数向指数高的数转换"><span class="toc-text">第一步：指数低的数向指数高的数转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二步：结果的M值进行加减运算"><span class="toc-text">第二步：结果的M值进行加减运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三步：将第二步的结果转换为IEEE-754标准"><span class="toc-text">第三步：将第二步的结果转换为IEEE 754标准</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="浮点数的储存与运算过程"><a href="#浮点数的储存与运算过程" class="headerlink" title="浮点数的储存与运算过程"></a>浮点数的储存与运算过程</h1><h2 id="浮点数的储存"><a href="#浮点数的储存" class="headerlink" title="浮点数的储存"></a>浮点数的储存</h2><h3 id="浮点数在计算机底层的存储方式"><a href="#浮点数在计算机底层的存储方式" class="headerlink" title="浮点数在计算机底层的存储方式"></a>浮点数在计算机底层的存储方式</h3><p>浮点数的存储方式都是遵从IEEE 754的规范，根据国际标准IEEE 754，任意一个二进制浮点数V可以表示成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">V&#x3D;(-1)^S * M * 2^E</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Ｓ(Sign)表示符号位：当Ｓ&#x3D;0，Ｖ为正数；当Ｓ&#x3D;1，Ｖ为负数。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">E(Exponent)表示指数位（2进制）。 </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">M(Mantissa)表示尾数（2进制）：M&gt;&#x3D;１ &amp;&amp; M&lt;２。</span></pre></td></tr></table></figure>
+
+<ul>
+<li>单精度浮点数float遵从IEEE R32.24，共32位1-8-23（S-E-M）</li>
+<li>双精度浮点数double遵从R64.53，共64位1-11-52（S-E-M）</li>
+</ul>
+<h3 id="十进制与二进制的基本转换"><a href="#十进制与二进制的基本转换" class="headerlink" title="十进制与二进制的基本转换"></a>十进制与二进制的基本转换</h3><ol>
+<li>十进制—&gt;二进制：整数部分，除二留余；小数部分，乘二留整。  </li>
+<li>125(10)=0.001(2)  </li>
+<li>42(10)=0.011010111000….(2)</li>
+<li>二进制—&gt;十进制：0000.0000 = 8 4 2 1 . 1/2 1/4 1/8 1/16</li>
+</ol>
+<h3 id="十进制浮点数在内存中存储实例"><a href="#十进制浮点数在内存中存储实例" class="headerlink" title="十进制浮点数在内存中存储实例"></a>十进制浮点数在内存中存储实例</h3><p>10.F = (-1)^0 * 2^0 * 0<br>0.42F = (-1)^0 * 2^0111 1101 * 1010 1110 0….  </p>
+<blockquote>
+<p>0.01 1010 1110 0…. &lt;– 指数位-2(10)，尾数位[1] 1010 1110 0….(2)其中尾数的第一个1被省略</p>
+</blockquote>
+<ul>
+<li><strong>符号位</strong>：正数为0，负数为1</li>
+<li><strong>指数位</strong>：Float中的E为0～256(8bit)，为了表现出正负值，IEEE 754规定，计算机中存储的E为实际值加上中位数，Float的中位数为127，0～126表示-128～-1，127～256表示0～127</li>
+<li><strong>尾数位</strong>：将整数部分跟小数部分转化为二进制，IEEE 754规定，在计算机内部保存M时，因为M总是1开头，所以可以舍去第一位1，只保存后面的小数部分。所以float的23位的M可以表示24位二进制数。</li>
+</ul>
+<p>0.42F在内存中储存计算会出现精度损失，0.4199999868869781494140625，但只是储存并不会出现精度损失，为什么呢？</p>
+<h2 id="浮点数的加减运算"><a href="#浮点数的加减运算" class="headerlink" title="浮点数的加减运算"></a>浮点数的加减运算</h2><h3 id="实例：1-0F-0-42F在计算机底层的运算过程："><a href="#实例：1-0F-0-42F在计算机底层的运算过程：" class="headerlink" title="实例：1.0F-0.42F在计算机底层的运算过程："></a>实例：1.0F-0.42F在计算机底层的运算过程：</h3><blockquote>
+<p>0(S)011 1111 1(E)000 0000 0000 0000 0000 0000(M)<br>0(S)011 1110 1(E)101 0111 0000 1010 0011 1101(M)</p>
+</blockquote>
+<h3 id="第一步：指数低的数向指数高的数转换"><a href="#第一步：指数低的数向指数高的数转换" class="headerlink" title="第一步：指数低的数向指数高的数转换"></a>第一步：指数低的数向指数高的数转换</h3><p>这里的0.42F指数比1.0F指数底，所以指数位-2转换成0(指数位+2，尾数位向右移动两位)转化前后如下  </p>
+<blockquote>
+<p>0(S)011 1110 1(E)101 0111 0000 1010 0011 1101(M)<br>0(S)011 1111 1(E)01 101 0111 0000 1010 0011 11<strong><em>01</em></strong>(M)  </p>
+</blockquote>
+<p>指数+2，对应的尾数位向右移动两位，一定集的默认省略的1，所以两位为前面默认的1以及用0填充，变为了01….<font color="red"><strong>位移过程中最后两位被挤出，产生了精度损失</strong></font></p>
+<h3 id="第二步：结果的M值进行加减运算"><a href="#第二步：结果的M值进行加减运算" class="headerlink" title="第二步：结果的M值进行加减运算"></a>第二步：结果的M值进行加减运算</h3><blockquote>
+<p>1.00F的：1-000 0000 0000 0000 0000 0000(M)<br>0.42F的：0-011 0101 1100 0010 1000 1111(M)<br>结 果 是：0-100 1010 0011 1101 0111 0001(M)</p>
+</blockquote>
+<p>这里注意默认省略的首位1，1.0F因为没有被特殊处理，所以M省略的首位还是1；0.42F因为第一步进行了处理，M被0填充，所以省略首位变成了0</p>
+<h3 id="第三步：将第二步的结果转换为IEEE-754标准"><a href="#第三步：将第二步的结果转换为IEEE-754标准" class="headerlink" title="第三步：将第二步的结果转换为IEEE 754标准"></a>第三步：将第二步的结果转换为IEEE 754标准</h3><p>因为向指数高的数转换过，所以指数位E为指数高的指数位0111 1111(E)<br>刚刚的结果M拿过来，再加上结果是正数，S为0得到</p>
+<blockquote>
+<p>0(S) 011 1111 1(E) 0-100 1010 0011 1101 0111 0001(M)</p>
+</blockquote>
+<p>M需要进行转换，需要得到一个1开头的值，并准备省略，这里应该向左移动一位，低位用0填充</p>
+<blockquote>
+<p>0-100 1010 0011 1101 0111 0001(M)<br>1-001 0100 0111 1010 1110 001<strong><em>0</em></strong>(M)</p>
+</blockquote>
+<p>首位1省略，末位0填充，得到：001 0100 0111 1010 1110 0010(M)<br>与之前的S、E拼接起来得到：</p>
+<blockquote>
+<p>0(S) 011 1111 1(E) 0-100 1010 0011 1101 0111 0001(M) - 原来的<br>0(S) 011 1111 0(E) 001 0100 0111 1010 1110 0010(M) - 得到的</p>
+</blockquote>
+<p><font color="red"><strong>位移过程中最后一位填充0，产生了精度损失</strong></font></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li>在计算机底层存储浮点数时会产生精度损失。</li>
+<li>在计算第一步更改指数的时候会产生精度损失。</li>
+<li>在计算第三部尾数位按照IEEE 754标准转换时会产生精度损失。</li>
+</ol>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>浮点数的储存与运算过程</p>
+    
+    <p><span class="copy-title">本文作者:</span><a  title="John Doe">John Doe</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-10-16, 09:35:43</p>
+    <p><span class="copy-title">最后更新:</span>2019-11-11, 10:36:22</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/10/16/%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E5%82%A8%E5%AD%98%E4%B8%8E%E8%BF%90%E7%AE%97%E8%BF%87%E7%A8%8B/" title="浮点数的储存与运算过程">http://yoursite.com/2019/10/16/%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E5%82%A8%E5%AD%98%E4%B8%8E%E8%BF%90%E7%AE%97%E8%BF%87%E7%A8%8B/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 Yelog</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#Java','#HTTP','#Web','#Eclipse','#blog','#MarkDown','#tools','#Environment','#CSS','#HTML','#JS','#JQ','#XML','#Hardware','#feeling','#Assembly','#Bin','#学习笔记',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

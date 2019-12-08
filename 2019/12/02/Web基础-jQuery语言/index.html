@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Web基础-jQuery语言 | Hexo</title>
+  <meta name="keywords" content=" JS , JQ ">
+  <meta name="description" content="Web基础-jQuery语言 | Hexo">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Web基础-jQuery语言jQuery简介什么是jQuery jQuery是一个优秀的JavaScript框架，一个轻量级的JS库 它封装了JS、CSS、DOM，提供了一致的、简洁的API 兼容CSS3，以及兼容各种浏览器 注意：jQuery 2.x 开始不再支持IE6&#x2F;7&#x2F;8  如何使用jQuery 引入jQuery的js文件 可以通过本地文件导入，或者通过网络中jQuery的js文件地址 使">
+<meta name="keywords" content="JS,JQ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web基础-jQuery语言">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;Web%E5%9F%BA%E7%A1%80-jQuery%E8%AF%AD%E8%A8%80&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Web基础-jQuery语言jQuery简介什么是jQuery jQuery是一个优秀的JavaScript框架，一个轻量级的JS库 它封装了JS、CSS、DOM，提供了一致的、简洁的API 兼容CSS3，以及兼容各种浏览器 注意：jQuery 2.x 开始不再支持IE6&#x2F;7&#x2F;8  如何使用jQuery 引入jQuery的js文件 可以通过本地文件导入，或者通过网络中jQuery的js文件地址 使">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-03T07:57:24.000Z">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>John Doe</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/yelog" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="facebook" href="https://www.facebook.com/faker.tops" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-facebook"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="instagram" href="https://www.facebook.com/faker.tops" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-instagram"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="reddit" href="https://www.reddit.com/user/yelog/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-reddit"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="weibo" href="http://weibo.com/u/2307534817" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="jianshu" href="https://www.jianshu.com/u/ff56736de7cf" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-jianshu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="zhihu" href="https://www.zhihu.com/people/jaytp/activities" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="oschina" href="https://my.oschina.net/yelog" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-oschina"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="email" href="mailto:jaytp@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="kugou" href="https://www.kugou.com/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-kugou"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="neteasemusic" href="https://music.163.com/#/user/home?id=88151013" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-neteasemusic"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(26)</small></div></li>
+    
+        
+            
+            <li><div data-rel="语言编程">语言编程<small>(14)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="计算机知识">计算机知识<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具环境">工具环境<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="项目练习">项目练习<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="生活记录">生活记录<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="结构算法">结构算法<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="26">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color5">Java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">HTTP</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Web</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">Eclipse</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">blog</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">MarkDown</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">tools</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">Environment</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">CSS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">HTML</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">JS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">JQ</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">XML</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Hardware</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">feeling</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Assembly</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Bin</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">学习笔记</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/JavaEE-Web%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E9%A1%BA%E5%BA%8F/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="JavaEE-Web开发学习顺序">JavaEE-Web开发学习顺序</span>
+            <span class="post-date" title="2019-11-11 08:00:00">2019/11/11</span>
+        </a>
+        
+        <a  class="计算机知识 "
+           href="/2019/11/10/HTTP%E5%8D%8F%E8%AE%AE%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3/"
+           data-tag="HTTP,Web"
+           data-author="" >
+            <span class="post-title" title="HTTP协议简单理解">HTTP协议简单理解</span>
+            <span class="post-date" title="2019-11-10 08:35:25">2019/11/10</span>
+        </a>
+        
+        <a  class="工具环境 "
+           href="/2019/11/01/Eclipse%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E4%B8%8E%E7%BB%8F%E9%AA%8C/"
+           data-tag="Java,Eclipse"
+           data-author="" >
+            <span class="post-title" title="Eclipse使用技巧与经验">Eclipse使用技巧与经验</span>
+            <span class="post-date" title="2019-11-01 07:34:39">2019/11/01</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java内存管理">Java内存管理</span>
+            <span class="post-date" title="2019-11-11 07:32:31">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%9F%BA%E7%A1%80-JavaSE(%E4%B8%8B)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java基础-JavaSE(下)">Java基础-JavaSE(下)</span>
+            <span class="post-date" title="2019-11-11 08:00:04">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%9F%BA%E7%A1%80-JavaSE(%E4%B8%8A)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java基础-JavaSE(上)">Java基础-JavaSE(上)</span>
+            <span class="post-date" title="2019-11-11 08:00:03">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%9F%BA%E7%A1%80-%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80(Basic)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java基础-语言基础(Basic)">Java基础-语言基础(Basic)</span>
+            <span class="post-date" title="2019-11-11 08:00:01">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%9F%BA%E7%A1%80-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1(OOP)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java基础-面向对象(OOP)">Java基础-面向对象(OOP)</span>
+            <span class="post-date" title="2019-11-11 08:00:02">2019/11/11</span>
+        </a>
+        
+        <a  class="项目练习 "
+           href="/2019/11/23/Java%E5%AE%9E%E8%B7%B5-%E8%81%8A%E5%A4%A9%E5%AE%A4(C-S%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java实践-聊天室(C/S网络编程)">Java实践-聊天室(C/S网络编程)</span>
+            <span class="post-date" title="2019-11-23 09:25:17">2019/11/23</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/23/Java%E5%AE%9E%E8%B7%B5-WebServer(%E4%BB%BFTomcat)/"
+           data-tag="Java,Web"
+           data-author="" >
+            <span class="post-title" title="Java实践-WebServer(仿Tomcat)">Java实践-WebServer(仿Tomcat)</span>
+            <span class="post-date" title="2019-11-23 11:45:17">2019/11/23</span>
+        </a>
+        
+        <a  class="项目练习 "
+           href="/2019/11/22/Java%E5%AE%9E%E8%B7%B5-%E9%A3%9E%E6%9C%BA%E5%A4%A7%E6%88%98/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java实践-飞机大战">Java实践-飞机大战</span>
+            <span class="post-date" title="2019-11-22 21:22:46">2019/11/22</span>
+        </a>
+        
+        <a  class="项目练习 "
+           href="/2019/11/22/Java%E7%BB%83%E4%B9%A0-%E9%9A%8F%E6%9C%BA%E8%AF%BB%E5%86%99-%E9%A1%BA%E5%BA%8F%E8%AF%BB%E5%86%99/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java练习-随机读写/顺序读写">Java练习-随机读写/顺序读写</span>
+            <span class="post-date" title="2019-11-22 22:45:17">2019/11/22</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/09/15/MarkDown%E9%80%9A%E7%94%A8%E8%AF%AD%E6%B3%95/"
+           data-tag="blog,MarkDown"
+           data-author="" >
+            <span class="post-title" title="MarkDown通用语法">MarkDown通用语法</span>
+            <span class="post-date" title="2019-09-15 09:20:39">2019/09/15</span>
+        </a>
+        
+        <a  class="工具环境 "
+           href="/2019/11/11/Maven%E5%85%A5%E9%97%A8%E4%B8%8E%E8%AE%A4%E8%AF%86/"
+           data-tag="tools,Environment"
+           data-author="" >
+            <span class="post-title" title="Maven入门与认识">Maven入门与认识</span>
+            <span class="post-date" title="2019-11-11 11:30:00">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Web%E5%9F%BA%E7%A1%80-CSS%E8%AF%AD%E8%A8%80/"
+           data-tag="Web,CSS"
+           data-author="" >
+            <span class="post-title" title="Web基础-CSS语言">Web基础-CSS语言</span>
+            <span class="post-date" title="2019-11-11 08:00:06">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Web%E5%9F%BA%E7%A1%80-HTML%E8%AF%AD%E8%A8%80/"
+           data-tag="Web,HTML"
+           data-author="" >
+            <span class="post-title" title="Web基础-HTML语言">Web基础-HTML语言</span>
+            <span class="post-date" title="2019-11-11 08:00:05">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/29/Web%E5%9F%BA%E7%A1%80-JavaScript%E8%AF%AD%E8%A8%80/"
+           data-tag="JS"
+           data-author="" >
+            <span class="post-title" title="Web基础-JavaScript语言">Web基础-JavaScript语言</span>
+            <span class="post-date" title="2019-11-29 09:05:20">2019/11/29</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/12/02/Web%E5%9F%BA%E7%A1%80-jQuery%E8%AF%AD%E8%A8%80/"
+           data-tag="JS,JQ"
+           data-author="" >
+            <span class="post-title" title="Web基础-jQuery语言">Web基础-jQuery语言</span>
+            <span class="post-date" title="2019-12-02 11:44:24">2019/12/02</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/15/XML%E5%8F%AF%E6%89%A9%E5%B1%95%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80/"
+           data-tag="XML"
+           data-author="" >
+            <span class="post-title" title="XML可扩展标记语言">XML可扩展标记语言</span>
+            <span class="post-date" title="2019-11-15 18:17:00">2019/11/15</span>
+        </a>
+        
+        <a  class="项目练习 "
+           href="/2019/09/15/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA-Hexo%E6%A1%86%E6%9E%B6/"
+           data-tag="blog"
+           data-author="" >
+            <span class="post-title" title="个人博客搭建-Hexo框架">个人博客搭建-Hexo框架</span>
+            <span class="post-date" title="2019-09-15 09:19:39">2019/09/15</span>
+        </a>
+        
+        <a  class="计算机知识 "
+           href="/2019/09/15/%E5%85%B3%E4%BA%8EUEFI%E4%B8%8EBIOS%E4%BB%A5%E5%8F%8AUEFI%E5%90%AF%E5%8A%A8%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F/"
+           data-tag="Hardware"
+           data-author="" >
+            <span class="post-title" title="关于UEFI与BIOS以及UEFI启动安装系统">关于UEFI与BIOS以及UEFI启动安装系统</span>
+            <span class="post-date" title="2019-09-15 10:20:39">2019/09/15</span>
+        </a>
+        
+        <a  class="生活记录 "
+           href="/2019/09/14/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/"
+           data-tag="blog,feeling"
+           data-author="" >
+            <span class="post-title" title="我的第一个博客">我的第一个博客</span>
+            <span class="post-date" title="2019-09-14 09:35:43">2019/09/14</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/10/11/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0(Assembly%20note)/"
+           data-tag="Hardware,Assembly"
+           data-author="" >
+            <span class="post-title" title="汇编语言语法笔记-Assembly">汇编语言语法笔记-Assembly</span>
+            <span class="post-date" title="2019-10-11 10:32:31">2019/10/11</span>
+        </a>
+        
+        <a  class="计算机知识 "
+           href="/2019/10/16/%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E5%82%A8%E5%AD%98%E4%B8%8E%E8%BF%90%E7%AE%97%E8%BF%87%E7%A8%8B/"
+           data-tag="Bin"
+           data-author="" >
+            <span class="post-title" title="浮点数的储存与运算过程">浮点数的储存与运算过程</span>
+            <span class="post-date" title="2019-10-16 09:35:43">2019/10/16</span>
+        </a>
+        
+        <a  class="计算机知识 "
+           href="/2019/10/16/%E7%A0%81%E8%A1%A8-ASC%E2%85%A1%E3%80%81Unicode%E3%80%81GBK/"
+           data-tag="Bin"
+           data-author="" >
+            <span class="post-title" title="码表-ASCⅡ、Unicode、GBK">码表-ASCⅡ、Unicode、GBK</span>
+            <span class="post-date" title="2019-10-16 09:34:43">2019/10/16</span>
+        </a>
+        
+        <a  class="结构算法 "
+           href="/2019/11/28/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AC%94%E8%AE%B0/"
+           data-tag="学习笔记"
+           data-author="" >
+            <span class="post-title" title="线性代数笔记">线性代数笔记</span>
+            <span class="post-date" title="2019-11-28 08:00:00">2019/11/28</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-Web基础-jQuery语言" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Web基础-jQuery语言</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="语言编程">语言编程</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color3">JS</a>
+            
+            <a class="color3">JQ</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-12-03 15:57:24'>2019-12-02 11:44</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Web基础-jQuery语言"><span class="toc-text">Web基础-jQuery语言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery简介"><span class="toc-text">jQuery简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是jQuery"><span class="toc-text">什么是jQuery</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何使用jQuery"><span class="toc-text">如何使用jQuery</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery对象"><span class="toc-text">jQuery对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery对象简介"><span class="toc-text">jQuery对象简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery遍历数组的方法"><span class="toc-text">jQuery遍历数组的方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery选择器"><span class="toc-text">jQuery选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery选择器-1"><span class="toc-text">jQuery选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery过滤选择器"><span class="toc-text">jQuery过滤选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基本过滤选择器"><span class="toc-text">基本过滤选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#子元素过滤选择器"><span class="toc-text">子元素过滤选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内容过滤选择器"><span class="toc-text">内容过滤选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#可见性过滤选择器"><span class="toc-text">可见性过滤选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#属性过滤选择器"><span class="toc-text">属性过滤选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#状态过滤选择器"><span class="toc-text">状态过滤选择器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表单选择器"><span class="toc-text">表单选择器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery操作DOM"><span class="toc-text">jQuery操作DOM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#读写节点"><span class="toc-text">读写节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增删节点"><span class="toc-text">增删节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#样式操作"><span class="toc-text">样式操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#遍历节点"><span class="toc-text">遍历节点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery事件"><span class="toc-text">jQuery事件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#事件处理"><span class="toc-text">事件处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件冒泡"><span class="toc-text">事件冒泡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#合成事件"><span class="toc-text">合成事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟操作"><span class="toc-text">模拟操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery动画"><span class="toc-text">jQuery动画</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#显示隐藏动画"><span class="toc-text">显示隐藏动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上下滑动式"><span class="toc-text">上下滑动式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#淡入淡出效果"><span class="toc-text">淡入淡出效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义动画效果"><span class="toc-text">自定义动画效果</span></a></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Web基础-jQuery语言"><a href="#Web基础-jQuery语言" class="headerlink" title="Web基础-jQuery语言"></a>Web基础-jQuery语言</h1><h2 id="jQuery简介"><a href="#jQuery简介" class="headerlink" title="jQuery简介"></a>jQuery简介</h2><h3 id="什么是jQuery"><a href="#什么是jQuery" class="headerlink" title="什么是jQuery"></a>什么是jQuery</h3><ul>
+<li>jQuery是一个优秀的JavaScript框架，一个轻量级的JS库</li>
+<li>它封装了JS、CSS、DOM，提供了一致的、简洁的API</li>
+<li>兼容CSS3，以及兼容各种浏览器</li>
+<li>注意：jQuery 2.x 开始不再支持IE6/7/8</li>
+</ul>
+<h3 id="如何使用jQuery"><a href="#如何使用jQuery" class="headerlink" title="如何使用jQuery"></a>如何使用jQuery</h3><ul>
+<li>引入jQuery的js文件</li>
+<li>可以通过本地文件导入，或者通过网络中jQuery的js文件地址</li>
+<li>使用jq选择器定位要操作的节点，然后调用jq方法进行操作</li>
+</ul>
+<h2 id="jQuery对象"><a href="#jQuery对象" class="headerlink" title="jQuery对象"></a>jQuery对象</h2><h3 id="jQuery对象简介"><a href="#jQuery对象简介" class="headerlink" title="jQuery对象简介"></a>jQuery对象简介</h3><ul>
+<li>jQuery为了解决浏览器的兼容问题而提供的一种统一的封装后的对象描述</li>
+<li>jQuery提供的方法都是针对jQuery对象特有的，而且大部分方法的返回值也是jQuery对象，所以方法可以连缀调用</li>
+<li>jQuery对象本质上是DOM对象数组，它在该数组上扩展了一些操作数组中元素的方法</li>
+<li>jq.length：获取数组长度、jq.get(index)：获取数组中的某一个DOM对象、jq[index]：等价于obj.get(index)</li>
+<li>jq对象与dom对象之间转换，就是选择jq对象的某个 dom = jq[0]，相反的 jq = $(dom)</li>
+</ul>
+<h3 id="jQuery遍历数组的方法"><a href="#jQuery遍历数组的方法" class="headerlink" title="jQuery遍历数组的方法"></a>jQuery遍历数组的方法</h3><ul>
+<li>$(selector).each(func) ：遍历selector选中的每个对象，每个对象执行func方法，方法体内用this表示当前对象</li>
+<li>示例：<code>$(&quot;div&quot;).each(function(){this.val=&quot;已遍历&quot;})</code></li>
+</ul>
+<h2 id="jQuery选择器"><a href="#jQuery选择器" class="headerlink" title="jQuery选择器"></a>jQuery选择器</h2><h3 id="jQuery选择器-1"><a href="#jQuery选择器-1" class="headerlink" title="jQuery选择器"></a>jQuery选择器</h3><ul>
+<li>jQuery选择器类似CSS选择器，包含以下种类：基本选择器、层次选择器、过滤选择器、表单选择器</li>
+<li>jQuery选择器大部分采用了CSS方式，方便的选择对象，基本选择器、层次选择器基本都为CSS格式</li>
+<li>以下详细描述了另外两种选择器的介绍和使用</li>
+<li>节点操作节点，参考下面jQuery的遍历节点操作</li>
+</ul>
+<h3 id="jQuery过滤选择器"><a href="#jQuery过滤选择器" class="headerlink" title="jQuery过滤选择器"></a>jQuery过滤选择器</h3><h4 id="基本过滤选择器"><a href="#基本过滤选择器" class="headerlink" title="基本过滤选择器"></a>基本过滤选择器</h4><ul>
+<li>:first：第一个元素</li>
+<li>:last：最后一个元素</li>
+<li>:not(jq)：把jq对象排除在外</li>
+<li>:even：挑选偶数行</li>
+<li>:odd：挑选奇数行</li>
+<li>:eq(index)：下标等于index的元素(从0开始计算)</li>
+<li>:gt(index)：下标大于index的元素</li>
+<li>:lt(index)：下标小于index的元素</li>
+</ul>
+<h4 id="子元素过滤选择器"><a href="#子元素过滤选择器" class="headerlink" title="子元素过滤选择器"></a>子元素过滤选择器</h4><ul>
+<li>:first-child ：匹配第一个子元素</li>
+<li>:last-child ：匹配最后一个子元素</li>
+<li>:nth-child(n) ：匹配第n个子元素(不是从0开始计算)</li>
+</ul>
+<h4 id="内容过滤选择器"><a href="#内容过滤选择器" class="headerlink" title="内容过滤选择器"></a>内容过滤选择器</h4><ul>
+<li>:contains(‘text’)：匹配包含给定文本的元素</li>
+<li>:empty：匹配所有不包含子元素或文本的空元素</li>
+<li>:has(jq)：匹配包含jq对象的元素</li>
+<li>:parent：匹配非空的元素</li>
+</ul>
+<h4 id="可见性过滤选择器"><a href="#可见性过滤选择器" class="headerlink" title="可见性过滤选择器"></a>可见性过滤选择器</h4><ul>
+<li>:hidden ：匹配所有不可见元素，或type为hidden的元素</li>
+<li>:visible：匹配所有可见元素</li>
+</ul>
+<h4 id="属性过滤选择器"><a href="#属性过滤选择器" class="headerlink" title="属性过滤选择器"></a>属性过滤选择器</h4><ul>
+<li>类似CSS中属性选择器</li>
+<li>例如：<code>$(&quot;input[value=&#39;你好&#39;]&quot;)</code></li>
+</ul>
+<h4 id="状态过滤选择器"><a href="#状态过滤选择器" class="headerlink" title="状态过滤选择器"></a>状态过滤选择器</h4><ul>
+<li>:enabled 匹配可用的元素</li>
+<li>:disabled 匹配不可用的元素</li>
+<li>:checked 匹配选中的checkbox、option(单选、多选、下拉选)</li>
+<li>:selected 匹配选中的option</li>
+</ul>
+<h3 id="表单选择器"><a href="#表单选择器" class="headerlink" title="表单选择器"></a>表单选择器</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>:input</td>
+<td>匹配所有表单控件</td>
+</tr>
+<tr>
+<td>:text</td>
+<td>匹配文本框</td>
+</tr>
+<tr>
+<td>:password</td>
+<td>匹配密码框</td>
+</tr>
+<tr>
+<td>:radio</td>
+<td>匹配单选框</td>
+</tr>
+<tr>
+<td>:checkbox</td>
+<td>匹配多选框</td>
+</tr>
+<tr>
+<td>:submit</td>
+<td>匹配提交按钮</td>
+</tr>
+<tr>
+<td>:reset</td>
+<td>匹配重置按钮</td>
+</tr>
+<tr>
+<td>:button</td>
+<td>匹配普通按钮</td>
+</tr>
+<tr>
+<td>:file</td>
+<td>匹配文件框</td>
+</tr>
+<tr>
+<td>:hidden</td>
+<td>匹配隐藏框</td>
+</tr>
+</tbody></table>
+<h2 id="jQuery操作DOM"><a href="#jQuery操作DOM" class="headerlink" title="jQuery操作DOM"></a>jQuery操作DOM</h2><h3 id="读写节点"><a href="#读写节点" class="headerlink" title="读写节点"></a>读写节点</h3><ul>
+<li>读写节点的HTML内容：<code>obj.html() / obj.html(&quot;&lt;span&gt;123&lt;/span&gt;&quot;)</code></li>
+<li>读写节点的文本内容：<code>obj.text() / obj.text(&quot;123&quot;)</code></li>
+<li>读写节点的value属性值：<code>obj.val() / obj.val(&quot;abc&quot;)</code></li>
+<li>读写节点的属性值：<code>obj.attr(&quot;属性名&quot;) / obj.attr(&quot;属性名&quot;,&quot;属性值&quot;)</code></li>
+</ul>
+<blockquote>
+<p>Jquery1.6之后，它将“属性”与“特性”做了区别，属性指的是“name，id”等等，特性指的是“selectedIndex, tagName, nodeName”等等。可以通过attr方法去获得属性，通过prop方法去获得特性。<br>$(“#cb”).attr(“tagName”); //undefined<br>$(“#cb”).prop(“tagName”); //INPUT<br>那么，什么时候使用attr()，什么时候使用prop()？  </p>
+<ol>
+<li>添加属性名称该属性就会生效应该使用prop();  </li>
+<li>是有true,false两个属性使用prop();  </li>
+<li>其他则使用attr();  </li>
+</ol>
+</blockquote>
+<h3 id="增删节点"><a href="#增删节点" class="headerlink" title="增删节点"></a>增删节点</h3><ul>
+<li>创建DOM节点：语法<code>$(&quot;节点内容&quot;)</code>，例如：<code>$(&quot;&lt;span&gt;你好&lt;/span&gt;&quot;)</code></li>
+<li>插入DOM节点：<ol>
+<li>element.append(obj) 作为最后一个节点添加进来</li>
+<li>element.prepend(obj) 作为第一个节点添加进来</li>
+<li>element.after(obj) 作为元素的下一个节点添加进来</li>
+<li>element.before(obj) 作为元素的上一个节点添加进来</li>
+</ol>
+</li>
+<li>删除DOM节点：<ol>
+<li>obj.remove() 删除节点</li>
+<li>obj.remove(selector) 只删除满足selector的节点</li>
+<li>obj.empty() 清空节点</li>
+</ol>
+</li>
+</ul>
+<h3 id="样式操作"><a href="#样式操作" class="headerlink" title="样式操作"></a>样式操作</h3><ul>
+<li>addClass(“”) 追加样式</li>
+<li>removeClass(“”) 移除指定样式</li>
+<li>removeClass() 移除所有样式</li>
+<li>toggleClass(“”) 切换样式</li>
+<li>hasClass(“”) 判断是否有某个样式</li>
+<li>css(“”) 读取css的值</li>
+<li>css(“”,””) 设置多个样式</li>
+<li>css(“{….}”) 设置样式</li>
+</ul>
+<h3 id="遍历节点"><a href="#遍历节点" class="headerlink" title="遍历节点"></a>遍历节点</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>siblings([selector])</td>
+<td>返回所有兄弟元素</td>
+</tr>
+<tr>
+<td>prev([selector])</td>
+<td>返回同级上一个元素</td>
+</tr>
+<tr>
+<td>prevAll([selector])</td>
+<td>返回同级上所有元素</td>
+</tr>
+<tr>
+<td>next([selector])</td>
+<td>返回同级下一个元素</td>
+</tr>
+<tr>
+<td>nextAll([selector])</td>
+<td>返回同级下所有元素</td>
+</tr>
+<tr>
+<td>chirldren([selector])</td>
+<td>返回所有子元素</td>
+</tr>
+<tr>
+<td>parent()</td>
+<td>返回父元素</td>
+</tr>
+<tr>
+<td>find(selector)</td>
+<td>查找满足选择器的所有后代</td>
+</tr>
+</tbody></table>
+<h2 id="jQuery事件"><a href="#jQuery事件" class="headerlink" title="jQuery事件"></a>jQuery事件</h2><h3 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h3><ul>
+<li>语法：$obj.bind(事件类型，事件处理函数)，如 <code>$obj.bind(&quot;click&quot;,func)</code></li>
+<li>简写形式：如 <code>$obj.click(func)</code></li>
+<li>获取事件对象event，只需要在事件函数中传入一个参数，例如：<code>$obj.click(function(e){...})</code></li>
+<li>事件对象的常用属性：<ul>
+<li>获取事件源 e.target <strong>返回DOM对象</strong></li>
+<li>获取鼠标点击坐标 e.pageX 、 e.pageY</li>
+</ul>
+</li>
+</ul>
+<h3 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h3><ul>
+<li>子节点产生的事件会依次向上抛给父节点</li>
+<li>为了避免事件冒泡，我们可以设置取消事件冒泡</li>
+<li>代码：<code>e.stopPropagation()</code> ，用于取消事件冒泡</li>
+</ul>
+<h3 id="合成事件"><a href="#合成事件" class="headerlink" title="合成事件"></a>合成事件</h3><ul>
+<li>hover(mouseenter,mouseleave) 用于模拟光标悬停事件</li>
+<li>toggle() 在多个事件响应中切换</li>
+</ul>
+<h3 id="模拟操作"><a href="#模拟操作" class="headerlink" title="模拟操作"></a>模拟操作</h3><ul>
+<li>语法：$obj.trigger(事件类型) 例如：<code>$obj.trigger(&quot;focus&quot;)</code></li>
+<li>简写形式：如 <code>$obj.focus()</code></li>
+</ul>
+<h2 id="jQuery动画"><a href="#jQuery动画" class="headerlink" title="jQuery动画"></a>jQuery动画</h2><h3 id="显示隐藏动画"><a href="#显示隐藏动画" class="headerlink" title="显示隐藏动画"></a>显示隐藏动画</h3><ul>
+<li>语法： show() / hide() , 通过改变元素的宽度和高度来实现显示或者隐藏</li>
+<li>用法： <code>$obj.show(执行时间,回调函数);</code><ul>
+<li>执行时间：slow,normla,fast,毫秒数</li>
+<li>回调函数：动画执行完毕后执行的函数</li>
+</ul>
+</li>
+<li>toggle();</li>
+</ul>
+<h3 id="上下滑动式"><a href="#上下滑动式" class="headerlink" title="上下滑动式"></a>上下滑动式</h3><ul>
+<li>语法： slideDown() / slideUp() , 通过改变元素的高度来实现显示或者隐藏</li>
+<li>用法同上</li>
+<li>slideToggle();</li>
+</ul>
+<h3 id="淡入淡出效果"><a href="#淡入淡出效果" class="headerlink" title="淡入淡出效果"></a>淡入淡出效果</h3><ul>
+<li>语法： fadeIn() / fadeOut() , 通过改变元素的不透明度opacity来实现显示或者隐藏</li>
+<li>用法同上</li>
+<li>fadeToggle();</li>
+</ul>
+<h3 id="自定义动画效果"><a href="#自定义动画效果" class="headerlink" title="自定义动画效果"></a>自定义动画效果</h3><ul>
+<li>语法：<code>animate(偏移位置,执行时间,回调函数)</code><ul>
+<li>偏移位置：{}描述动画执行之后元素的样式</li>
+<li>执行时间：毫秒数</li>
+<li>回调函数：动画执行结束后要执行的函数</li>
+</ul>
+</li>
+<li>使用示例：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$(&quot;div&quot;).click(function()&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    $(this).animate(&#123;&#39;left&#39;,&#39;500px&#39;&#125;,4000);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    $(this).animate(&#123;&#39;top&#39;,&#39;300px&#39;&#125;,2000);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&#125;);</span></pre></td></tr></table></figure>
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>Web基础-jQuery语言</p>
+    
+    <p><span class="copy-title">本文作者:</span><a  title="John Doe">John Doe</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-12-02, 11:44:24</p>
+    <p><span class="copy-title">最后更新:</span>2019-12-03, 15:57:24</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/02/Web%E5%9F%BA%E7%A1%80-jQuery%E8%AF%AD%E8%A8%80/" title="Web基础-jQuery语言">http://yoursite.com/2019/12/02/Web%E5%9F%BA%E7%A1%80-jQuery%E8%AF%AD%E8%A8%80/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 Yelog</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#Java','#HTTP','#Web','#Eclipse','#blog','#MarkDown','#tools','#Environment','#CSS','#HTML','#JS','#JQ','#XML','#Hardware','#feeling','#Assembly','#Bin','#学习笔记',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

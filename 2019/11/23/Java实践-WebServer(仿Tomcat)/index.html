@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Java实践-WebServer(仿Tomcat) | Hexo</title>
+  <meta name="keywords" content=" Java , Web ">
+  <meta name="description" content="Java实践-WebServer(仿Tomcat) | Hexo">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Web基础-jQuery语言jQuery简介什么是jQuery jQuery是一个优秀的JavaScript框架，一个轻量级的JS库 它封装了JS、CSS、DOM，提供了一致的、简洁的API 兼容CSS3，以及兼容各种浏览器 注意：jQuery 2.x 开始不再支持IE6&#x2F;7&#x2F;8  如何使用jQuery 引入jQuery的js文件 可以通过本地文件导入，或者通过网络中jQuery的js文件地址 使">
+<meta name="keywords" content="JS,JQ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web基础-jQuery语言">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;Web%E5%9F%BA%E7%A1%80-jQuery%E8%AF%AD%E8%A8%80&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Web基础-jQuery语言jQuery简介什么是jQuery jQuery是一个优秀的JavaScript框架，一个轻量级的JS库 它封装了JS、CSS、DOM，提供了一致的、简洁的API 兼容CSS3，以及兼容各种浏览器 注意：jQuery 2.x 开始不再支持IE6&#x2F;7&#x2F;8  如何使用jQuery 引入jQuery的js文件 可以通过本地文件导入，或者通过网络中jQuery的js文件地址 使">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-03T07:57:24.000Z">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>John Doe</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/yelog" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="facebook" href="https://www.facebook.com/faker.tops" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-facebook"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="instagram" href="https://www.facebook.com/faker.tops" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-instagram"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="reddit" href="https://www.reddit.com/user/yelog/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-reddit"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="weibo" href="http://weibo.com/u/2307534817" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="jianshu" href="https://www.jianshu.com/u/ff56736de7cf" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-jianshu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="zhihu" href="https://www.zhihu.com/people/jaytp/activities" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="oschina" href="https://my.oschina.net/yelog" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-oschina"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="email" href="mailto:jaytp@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="kugou" href="https://www.kugou.com/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-kugou"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="neteasemusic" href="https://music.163.com/#/user/home?id=88151013" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-neteasemusic"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(26)</small></div></li>
+    
+        
+            
+            <li><div data-rel="语言编程">语言编程<small>(14)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="计算机知识">计算机知识<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具环境">工具环境<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="项目练习">项目练习<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="生活记录">生活记录<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="结构算法">结构算法<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="26">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color5">Java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">HTTP</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Web</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">Eclipse</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">blog</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">MarkDown</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">tools</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">Environment</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">CSS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">HTML</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">JS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">JQ</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">XML</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Hardware</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">feeling</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Assembly</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Bin</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">学习笔记</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/JavaEE-Web%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E9%A1%BA%E5%BA%8F/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="JavaEE-Web开发学习顺序">JavaEE-Web开发学习顺序</span>
+            <span class="post-date" title="2019-11-11 08:00:00">2019/11/11</span>
+        </a>
+        
+        <a  class="计算机知识 "
+           href="/2019/11/10/HTTP%E5%8D%8F%E8%AE%AE%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3/"
+           data-tag="HTTP,Web"
+           data-author="" >
+            <span class="post-title" title="HTTP协议简单理解">HTTP协议简单理解</span>
+            <span class="post-date" title="2019-11-10 08:35:25">2019/11/10</span>
+        </a>
+        
+        <a  class="工具环境 "
+           href="/2019/11/01/Eclipse%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E4%B8%8E%E7%BB%8F%E9%AA%8C/"
+           data-tag="Java,Eclipse"
+           data-author="" >
+            <span class="post-title" title="Eclipse使用技巧与经验">Eclipse使用技巧与经验</span>
+            <span class="post-date" title="2019-11-01 07:34:39">2019/11/01</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java内存管理">Java内存管理</span>
+            <span class="post-date" title="2019-11-11 07:32:31">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%9F%BA%E7%A1%80-JavaSE(%E4%B8%8B)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java基础-JavaSE(下)">Java基础-JavaSE(下)</span>
+            <span class="post-date" title="2019-11-11 08:00:04">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%9F%BA%E7%A1%80-JavaSE(%E4%B8%8A)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java基础-JavaSE(上)">Java基础-JavaSE(上)</span>
+            <span class="post-date" title="2019-11-11 08:00:03">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%9F%BA%E7%A1%80-%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80(Basic)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java基础-语言基础(Basic)">Java基础-语言基础(Basic)</span>
+            <span class="post-date" title="2019-11-11 08:00:01">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%9F%BA%E7%A1%80-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1(OOP)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java基础-面向对象(OOP)">Java基础-面向对象(OOP)</span>
+            <span class="post-date" title="2019-11-11 08:00:02">2019/11/11</span>
+        </a>
+        
+        <a  class="项目练习 "
+           href="/2019/11/23/Java%E5%AE%9E%E8%B7%B5-%E8%81%8A%E5%A4%A9%E5%AE%A4(C-S%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java实践-聊天室(C/S网络编程)">Java实践-聊天室(C/S网络编程)</span>
+            <span class="post-date" title="2019-11-23 09:25:17">2019/11/23</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/23/Java%E5%AE%9E%E8%B7%B5-WebServer(%E4%BB%BFTomcat)/"
+           data-tag="Java,Web"
+           data-author="" >
+            <span class="post-title" title="Java实践-WebServer(仿Tomcat)">Java实践-WebServer(仿Tomcat)</span>
+            <span class="post-date" title="2019-11-23 11:45:17">2019/11/23</span>
+        </a>
+        
+        <a  class="项目练习 "
+           href="/2019/11/22/Java%E5%AE%9E%E8%B7%B5-%E9%A3%9E%E6%9C%BA%E5%A4%A7%E6%88%98/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java实践-飞机大战">Java实践-飞机大战</span>
+            <span class="post-date" title="2019-11-22 21:22:46">2019/11/22</span>
+        </a>
+        
+        <a  class="项目练习 "
+           href="/2019/11/22/Java%E7%BB%83%E4%B9%A0-%E9%9A%8F%E6%9C%BA%E8%AF%BB%E5%86%99-%E9%A1%BA%E5%BA%8F%E8%AF%BB%E5%86%99/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java练习-随机读写/顺序读写">Java练习-随机读写/顺序读写</span>
+            <span class="post-date" title="2019-11-22 22:45:17">2019/11/22</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/09/15/MarkDown%E9%80%9A%E7%94%A8%E8%AF%AD%E6%B3%95/"
+           data-tag="blog,MarkDown"
+           data-author="" >
+            <span class="post-title" title="MarkDown通用语法">MarkDown通用语法</span>
+            <span class="post-date" title="2019-09-15 09:20:39">2019/09/15</span>
+        </a>
+        
+        <a  class="工具环境 "
+           href="/2019/11/11/Maven%E5%85%A5%E9%97%A8%E4%B8%8E%E8%AE%A4%E8%AF%86/"
+           data-tag="tools,Environment"
+           data-author="" >
+            <span class="post-title" title="Maven入门与认识">Maven入门与认识</span>
+            <span class="post-date" title="2019-11-11 11:30:00">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Web%E5%9F%BA%E7%A1%80-CSS%E8%AF%AD%E8%A8%80/"
+           data-tag="Web,CSS"
+           data-author="" >
+            <span class="post-title" title="Web基础-CSS语言">Web基础-CSS语言</span>
+            <span class="post-date" title="2019-11-11 08:00:06">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Web%E5%9F%BA%E7%A1%80-HTML%E8%AF%AD%E8%A8%80/"
+           data-tag="Web,HTML"
+           data-author="" >
+            <span class="post-title" title="Web基础-HTML语言">Web基础-HTML语言</span>
+            <span class="post-date" title="2019-11-11 08:00:05">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/29/Web%E5%9F%BA%E7%A1%80-JavaScript%E8%AF%AD%E8%A8%80/"
+           data-tag="JS"
+           data-author="" >
+            <span class="post-title" title="Web基础-JavaScript语言">Web基础-JavaScript语言</span>
+            <span class="post-date" title="2019-11-29 09:05:20">2019/11/29</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/12/02/Web%E5%9F%BA%E7%A1%80-jQuery%E8%AF%AD%E8%A8%80/"
+           data-tag="JS,JQ"
+           data-author="" >
+            <span class="post-title" title="Web基础-jQuery语言">Web基础-jQuery语言</span>
+            <span class="post-date" title="2019-12-02 11:44:24">2019/12/02</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/15/XML%E5%8F%AF%E6%89%A9%E5%B1%95%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80/"
+           data-tag="XML"
+           data-author="" >
+            <span class="post-title" title="XML可扩展标记语言">XML可扩展标记语言</span>
+            <span class="post-date" title="2019-11-15 18:17:00">2019/11/15</span>
+        </a>
+        
+        <a  class="项目练习 "
+           href="/2019/09/15/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA-Hexo%E6%A1%86%E6%9E%B6/"
+           data-tag="blog"
+           data-author="" >
+            <span class="post-title" title="个人博客搭建-Hexo框架">个人博客搭建-Hexo框架</span>
+            <span class="post-date" title="2019-09-15 09:19:39">2019/09/15</span>
+        </a>
+        
+        <a  class="计算机知识 "
+           href="/2019/09/15/%E5%85%B3%E4%BA%8EUEFI%E4%B8%8EBIOS%E4%BB%A5%E5%8F%8AUEFI%E5%90%AF%E5%8A%A8%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F/"
+           data-tag="Hardware"
+           data-author="" >
+            <span class="post-title" title="关于UEFI与BIOS以及UEFI启动安装系统">关于UEFI与BIOS以及UEFI启动安装系统</span>
+            <span class="post-date" title="2019-09-15 10:20:39">2019/09/15</span>
+        </a>
+        
+        <a  class="生活记录 "
+           href="/2019/09/14/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/"
+           data-tag="blog,feeling"
+           data-author="" >
+            <span class="post-title" title="我的第一个博客">我的第一个博客</span>
+            <span class="post-date" title="2019-09-14 09:35:43">2019/09/14</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/10/11/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0(Assembly%20note)/"
+           data-tag="Hardware,Assembly"
+           data-author="" >
+            <span class="post-title" title="汇编语言语法笔记-Assembly">汇编语言语法笔记-Assembly</span>
+            <span class="post-date" title="2019-10-11 10:32:31">2019/10/11</span>
+        </a>
+        
+        <a  class="计算机知识 "
+           href="/2019/10/16/%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E5%82%A8%E5%AD%98%E4%B8%8E%E8%BF%90%E7%AE%97%E8%BF%87%E7%A8%8B/"
+           data-tag="Bin"
+           data-author="" >
+            <span class="post-title" title="浮点数的储存与运算过程">浮点数的储存与运算过程</span>
+            <span class="post-date" title="2019-10-16 09:35:43">2019/10/16</span>
+        </a>
+        
+        <a  class="计算机知识 "
+           href="/2019/10/16/%E7%A0%81%E8%A1%A8-ASC%E2%85%A1%E3%80%81Unicode%E3%80%81GBK/"
+           data-tag="Bin"
+           data-author="" >
+            <span class="post-title" title="码表-ASCⅡ、Unicode、GBK">码表-ASCⅡ、Unicode、GBK</span>
+            <span class="post-date" title="2019-10-16 09:34:43">2019/10/16</span>
+        </a>
+        
+        <a  class="结构算法 "
+           href="/2019/11/28/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AC%94%E8%AE%B0/"
+           data-tag="学习笔记"
+           data-author="" >
+            <span class="post-title" title="线性代数笔记">线性代数笔记</span>
+            <span class="post-date" title="2019-11-28 08:00:00">2019/11/28</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-Java实践-WebServer(仿Tomcat)" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Java实践-WebServer(仿Tomcat)</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="语言编程">语言编程</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color5">Java</a>
+            
+            <a class="color4">Web</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-11-25 16:45:44'>2019-11-23 11:45</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java实践-WebServer-仿Tomcat"><span class="toc-text">Java实践-WebServer(仿Tomcat)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#项目解析"><span class="toc-text">项目解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是WebServer"><span class="toc-text">什么是WebServer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#项目需求"><span class="toc-text">项目需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#需求分析-方向"><span class="toc-text">需求分析(方向)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#需求分析-细节"><span class="toc-text">需求分析(细节)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目搭建-准备"><span class="toc-text">项目搭建 - 准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#项目准备工作"><span class="toc-text">项目准备工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#核心代码：实现连接"><span class="toc-text">核心代码：实现连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建HTTP相关类"><span class="toc-text">创建HTTP相关类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建Server-Context类"><span class="toc-text">创建Server Context类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目搭建-事务"><span class="toc-text">项目搭建 - 事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#响应请求资源"><span class="toc-text">响应请求资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#响应请求业务"><span class="toc-text">响应请求业务</span></a></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java实践-WebServer-仿Tomcat"><a href="#Java实践-WebServer-仿Tomcat" class="headerlink" title="Java实践-WebServer(仿Tomcat)"></a>Java实践-WebServer(仿Tomcat)</h1><h2 id="项目解析"><a href="#项目解析" class="headerlink" title="项目解析"></a>项目解析</h2><h3 id="什么是WebServer"><a href="#什么是WebServer" class="headerlink" title="什么是WebServer"></a>什么是WebServer</h3><ul>
+<li>WebServer也称Web容器，用于存放WebApp，一个WebServer可以存放多个WebApp</li>
+<li>Server服务器，WebServer就是Web服务器，就是支持HTTP应用协议的服务器</li>
+<li>其工作流程一般三部分：解析请求、处理请求、发送响应</li>
+<li>注意浏览器(客户端)在连接到服务端后会立即发送一个请求到服务端确认</li>
+<li>WebApp储存：网页，其他素材，程序代码等</li>
+</ul>
+<h3 id="项目需求"><a href="#项目需求" class="headerlink" title="项目需求"></a>项目需求</h3><ul>
+<li>做到类似 Tomcat 可以响应浏览器的各种请求，并做到应答处理</li>
+<li>在业务方面，完成注册和登录的实现（用户名、密码、昵称、年龄）</li>
+</ul>
+<h3 id="需求分析-方向"><a href="#需求分析-方向" class="headerlink" title="需求分析(方向)"></a>需求分析(方向)</h3><ul>
+<li>通过HTTP协议建立浏览器客户端与服务器之间的连接，完成WebServer任务</li>
+<li>主要事务有两种，一个是资源请求，一个是业务处理</li>
+<li>资源请求的两种情况：资源存在–&gt;发送资源；资源不存在–&gt;响应404页面</li>
+<li>业务处理有多种，这里暂时实现注册和登录两个业务</li>
+</ul>
+<h3 id="需求分析-细节"><a href="#需求分析-细节" class="headerlink" title="需求分析(细节)"></a>需求分析(细节)</h3><ul>
+<li>熟悉HTTP协议，在C/S沟通过程中，正确解析消息信息，正确响应响应信息</li>
+<li>熟悉XML的使用，尤其是 MimeMapping 必须XML导入</li>
+<li>使用线程池、超类、封装等，优化项目性能，增强其可扩展性</li>
+<li>在构建此项目时，最重要的是学习该编程思想</li>
+</ul>
+<h2 id="项目搭建-准备"><a href="#项目搭建-准备" class="headerlink" title="项目搭建 - 准备"></a>项目搭建 - 准备</h2><h3 id="项目准备工作"><a href="#项目准备工作" class="headerlink" title="项目准备工作"></a>项目准备工作</h3><ul>
+<li>创建 Maven Project ，设置好项目参数</li>
+<li>导入后期会用到的 dom4j Jar包</li>
+<li>创建三个包：<code>core</code> 核心代码包、<code>http</code> HTTP相关代码包、<code>servlet</code> 存放各servlet的包</li>
+<li>项目根目录创建两个文件夹：<code>conf</code> 存放各配置文件、<code>webapps</code> 存放Web资源</li>
+<li>向 <code>conf</code> 文件夹中导入所需的 MimeMapping XML配置文件</li>
+<li>在 <code>webapps</code> 文件夹下创建 <code>myweb</code>和<code>root</code> 文件夹，前者创建各网页资源，后者创建一个公用的404页面</li>
+<li>目录<code>myweb</code>文件：index主页、注册/注册成功/注册失败页面、登录/登录成功/登录失败页面</li>
+</ul>
+<h3 id="核心代码：实现连接"><a href="#核心代码：实现连接" class="headerlink" title="核心代码：实现连接"></a>核心代码：实现连接</h3><ul>
+<li>创建 <code>WebServer</code> 类作为主类，定义线程池，申请8088端口，并且循环等待连接获取Socket，传入 ‘ClientHandler’ 类生成线程任务，放入线程池</li>
+<li>创建 ‘ClientHandler’ 类作为处理事务类，通过主类传过来的Socket进行工作，注意Socket的关闭(写在finally中)</li>
+</ul>
+<h3 id="创建HTTP相关类"><a href="#创建HTTP相关类" class="headerlink" title="创建HTTP相关类"></a>创建HTTP相关类</h3><ul>
+<li><code>HttpContext</code>工具类、<code>EmptyRequestException</code>空请求类、<code>HttpRequst</code>请求类、<code>HttpResponse</code>响应类</li>
+<li>创建 <code>HttpContext</code> 类，主要用作工具类，存储查询MimeMapping，静态块中初始化MimeMapping，并提供公用方法 根据后缀 查询 Mime-Type</li>
+<li>web.xml 文件结构说明：每个二级标签<code>&lt;mime-mapping&gt;</code>下存有：<code>&lt;extension&gt;</code>中的文本作为文件后缀，<code>&lt;mime-type&gt;</code>中的文本作为MimeType</li>
+<li>创建 <code>EmptyRequestException</code> 类，自定义的空请求类，因为浏览器会时不时发送空请求</li>
+<li>创建 <code>HttpRequst</code> 类，完成请求的解析，并储存到成员变量中</li>
+<li>注意空请求情况的处理，以及业务参数的解析</li>
+<li>创建 <code>HttpResponse</code> 类，构造方法初始化参数，编写get/set方法，提供一个 flush() 方法暂不编写</li>
+</ul>
+<h3 id="创建Server-Context类"><a href="#创建Server-Context类" class="headerlink" title="创建Server Context类"></a>创建Server Context类</h3><ul>
+<li>创建’ServerContext’类，主要用作工具类，存储查询ServletMapping，静态块中初始化ServletMapping，并提供公用方法 根据请求方式 查询对应Servlet</li>
+<li>注意前提先创建 <code>HttpServlet</code>类 <code>RegServlet</code>类 <code>LoginServlet</code>类，内容可以为空，为了配合ServletMapping中的value类型</li>
+<li>注意前提先创建一个servlet.xml文件，存放uri对应业务的servlet类全名，储存好这次需求两个业务的值</li>
+</ul>
+<h2 id="项目搭建-事务"><a href="#项目搭建-事务" class="headerlink" title="项目搭建 - 事务"></a>项目搭建 - 事务</h2><h3 id="响应请求资源"><a href="#响应请求资源" class="headerlink" title="响应请求资源"></a>响应请求资源</h3><ul>
+<li><code>ClientHandler</code> 类中的 run() 方法开始编写事务，初始化请求类、响应类，根据获取的servlet判定(是否为null)是什么事务</li>
+<li>先处理资源事务：判断是否存在资源，决定返回什么资源，最后进行 flush() 响应资源</li>
+<li>进一步编写 <code>Response</code> 类中的 setEntity() 方法 和 flush() 方法</li>
+</ul>
+<h3 id="响应请求业务"><a href="#响应请求业务" class="headerlink" title="响应请求业务"></a>响应请求业务</h3><ul>
+<li>创建对应业务处理，完善 <code>HttpServlet</code> 抽象超类</li>
+<li>完善 <code>RegServlet</code> 注册类</li>
+<li>完善 <code>LoginServlet</code> 登录类</li>
+<li>优化代码</li>
+</ul>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>Java实践-WebServer(仿Tomcat)</p>
+    
+    <p><span class="copy-title">本文作者:</span><a  title="John Doe">John Doe</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-11-23, 11:45:17</p>
+    <p><span class="copy-title">最后更新:</span>2019-11-25, 16:45:44</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/11/23/Java%E5%AE%9E%E8%B7%B5-WebServer(%E4%BB%BFTomcat)/" title="Java实践-WebServer(仿Tomcat)">http://yoursite.com/2019/11/23/Java%E5%AE%9E%E8%B7%B5-WebServer(%E4%BB%BFTomcat)/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 Yelog</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#Java','#HTTP','#Web','#Eclipse','#blog','#MarkDown','#tools','#Environment','#CSS','#HTML','#JS','#JQ','#XML','#Hardware','#feeling','#Assembly','#Bin','#学习笔记',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

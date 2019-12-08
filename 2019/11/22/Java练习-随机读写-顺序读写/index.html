@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Java练习-随机读写/顺序读写 | Hexo</title>
+  <meta name="keywords" content=" Java ">
+  <meta name="description" content="Java练习-随机读写/顺序读写 | Hexo">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Web基础-jQuery语言jQuery简介什么是jQuery jQuery是一个优秀的JavaScript框架，一个轻量级的JS库 它封装了JS、CSS、DOM，提供了一致的、简洁的API 兼容CSS3，以及兼容各种浏览器 注意：jQuery 2.x 开始不再支持IE6&#x2F;7&#x2F;8  如何使用jQuery 引入jQuery的js文件 可以通过本地文件导入，或者通过网络中jQuery的js文件地址 使">
+<meta name="keywords" content="JS,JQ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web基础-jQuery语言">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;Web%E5%9F%BA%E7%A1%80-jQuery%E8%AF%AD%E8%A8%80&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Web基础-jQuery语言jQuery简介什么是jQuery jQuery是一个优秀的JavaScript框架，一个轻量级的JS库 它封装了JS、CSS、DOM，提供了一致的、简洁的API 兼容CSS3，以及兼容各种浏览器 注意：jQuery 2.x 开始不再支持IE6&#x2F;7&#x2F;8  如何使用jQuery 引入jQuery的js文件 可以通过本地文件导入，或者通过网络中jQuery的js文件地址 使">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-03T07:57:24.000Z">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>John Doe</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/yelog" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="facebook" href="https://www.facebook.com/faker.tops" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-facebook"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="instagram" href="https://www.facebook.com/faker.tops" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-instagram"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="reddit" href="https://www.reddit.com/user/yelog/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-reddit"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="weibo" href="http://weibo.com/u/2307534817" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="jianshu" href="https://www.jianshu.com/u/ff56736de7cf" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-jianshu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="zhihu" href="https://www.zhihu.com/people/jaytp/activities" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="oschina" href="https://my.oschina.net/yelog" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-oschina"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="email" href="mailto:jaytp@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="kugou" href="https://www.kugou.com/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-kugou"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="neteasemusic" href="https://music.163.com/#/user/home?id=88151013" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-neteasemusic"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(26)</small></div></li>
+    
+        
+            
+            <li><div data-rel="语言编程">语言编程<small>(14)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="计算机知识">计算机知识<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具环境">工具环境<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="项目练习">项目练习<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="生活记录">生活记录<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="结构算法">结构算法<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="26">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color5">Java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">HTTP</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Web</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">Eclipse</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">blog</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">MarkDown</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">tools</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">Environment</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">CSS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">HTML</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">JS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">JQ</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">XML</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Hardware</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">feeling</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Assembly</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Bin</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">学习笔记</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/JavaEE-Web%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E9%A1%BA%E5%BA%8F/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="JavaEE-Web开发学习顺序">JavaEE-Web开发学习顺序</span>
+            <span class="post-date" title="2019-11-11 08:00:00">2019/11/11</span>
+        </a>
+        
+        <a  class="计算机知识 "
+           href="/2019/11/10/HTTP%E5%8D%8F%E8%AE%AE%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3/"
+           data-tag="HTTP,Web"
+           data-author="" >
+            <span class="post-title" title="HTTP协议简单理解">HTTP协议简单理解</span>
+            <span class="post-date" title="2019-11-10 08:35:25">2019/11/10</span>
+        </a>
+        
+        <a  class="工具环境 "
+           href="/2019/11/01/Eclipse%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E4%B8%8E%E7%BB%8F%E9%AA%8C/"
+           data-tag="Java,Eclipse"
+           data-author="" >
+            <span class="post-title" title="Eclipse使用技巧与经验">Eclipse使用技巧与经验</span>
+            <span class="post-date" title="2019-11-01 07:34:39">2019/11/01</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java内存管理">Java内存管理</span>
+            <span class="post-date" title="2019-11-11 07:32:31">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%9F%BA%E7%A1%80-JavaSE(%E4%B8%8B)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java基础-JavaSE(下)">Java基础-JavaSE(下)</span>
+            <span class="post-date" title="2019-11-11 08:00:04">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%9F%BA%E7%A1%80-JavaSE(%E4%B8%8A)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java基础-JavaSE(上)">Java基础-JavaSE(上)</span>
+            <span class="post-date" title="2019-11-11 08:00:03">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%9F%BA%E7%A1%80-%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80(Basic)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java基础-语言基础(Basic)">Java基础-语言基础(Basic)</span>
+            <span class="post-date" title="2019-11-11 08:00:01">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%9F%BA%E7%A1%80-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1(OOP)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java基础-面向对象(OOP)">Java基础-面向对象(OOP)</span>
+            <span class="post-date" title="2019-11-11 08:00:02">2019/11/11</span>
+        </a>
+        
+        <a  class="项目练习 "
+           href="/2019/11/23/Java%E5%AE%9E%E8%B7%B5-%E8%81%8A%E5%A4%A9%E5%AE%A4(C-S%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java实践-聊天室(C/S网络编程)">Java实践-聊天室(C/S网络编程)</span>
+            <span class="post-date" title="2019-11-23 09:25:17">2019/11/23</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/23/Java%E5%AE%9E%E8%B7%B5-WebServer(%E4%BB%BFTomcat)/"
+           data-tag="Java,Web"
+           data-author="" >
+            <span class="post-title" title="Java实践-WebServer(仿Tomcat)">Java实践-WebServer(仿Tomcat)</span>
+            <span class="post-date" title="2019-11-23 11:45:17">2019/11/23</span>
+        </a>
+        
+        <a  class="项目练习 "
+           href="/2019/11/22/Java%E5%AE%9E%E8%B7%B5-%E9%A3%9E%E6%9C%BA%E5%A4%A7%E6%88%98/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java实践-飞机大战">Java实践-飞机大战</span>
+            <span class="post-date" title="2019-11-22 21:22:46">2019/11/22</span>
+        </a>
+        
+        <a  class="项目练习 "
+           href="/2019/11/22/Java%E7%BB%83%E4%B9%A0-%E9%9A%8F%E6%9C%BA%E8%AF%BB%E5%86%99-%E9%A1%BA%E5%BA%8F%E8%AF%BB%E5%86%99/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java练习-随机读写/顺序读写">Java练习-随机读写/顺序读写</span>
+            <span class="post-date" title="2019-11-22 22:45:17">2019/11/22</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/09/15/MarkDown%E9%80%9A%E7%94%A8%E8%AF%AD%E6%B3%95/"
+           data-tag="blog,MarkDown"
+           data-author="" >
+            <span class="post-title" title="MarkDown通用语法">MarkDown通用语法</span>
+            <span class="post-date" title="2019-09-15 09:20:39">2019/09/15</span>
+        </a>
+        
+        <a  class="工具环境 "
+           href="/2019/11/11/Maven%E5%85%A5%E9%97%A8%E4%B8%8E%E8%AE%A4%E8%AF%86/"
+           data-tag="tools,Environment"
+           data-author="" >
+            <span class="post-title" title="Maven入门与认识">Maven入门与认识</span>
+            <span class="post-date" title="2019-11-11 11:30:00">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Web%E5%9F%BA%E7%A1%80-CSS%E8%AF%AD%E8%A8%80/"
+           data-tag="Web,CSS"
+           data-author="" >
+            <span class="post-title" title="Web基础-CSS语言">Web基础-CSS语言</span>
+            <span class="post-date" title="2019-11-11 08:00:06">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Web%E5%9F%BA%E7%A1%80-HTML%E8%AF%AD%E8%A8%80/"
+           data-tag="Web,HTML"
+           data-author="" >
+            <span class="post-title" title="Web基础-HTML语言">Web基础-HTML语言</span>
+            <span class="post-date" title="2019-11-11 08:00:05">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/29/Web%E5%9F%BA%E7%A1%80-JavaScript%E8%AF%AD%E8%A8%80/"
+           data-tag="JS"
+           data-author="" >
+            <span class="post-title" title="Web基础-JavaScript语言">Web基础-JavaScript语言</span>
+            <span class="post-date" title="2019-11-29 09:05:20">2019/11/29</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/12/02/Web%E5%9F%BA%E7%A1%80-jQuery%E8%AF%AD%E8%A8%80/"
+           data-tag="JS,JQ"
+           data-author="" >
+            <span class="post-title" title="Web基础-jQuery语言">Web基础-jQuery语言</span>
+            <span class="post-date" title="2019-12-02 11:44:24">2019/12/02</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/15/XML%E5%8F%AF%E6%89%A9%E5%B1%95%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80/"
+           data-tag="XML"
+           data-author="" >
+            <span class="post-title" title="XML可扩展标记语言">XML可扩展标记语言</span>
+            <span class="post-date" title="2019-11-15 18:17:00">2019/11/15</span>
+        </a>
+        
+        <a  class="项目练习 "
+           href="/2019/09/15/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA-Hexo%E6%A1%86%E6%9E%B6/"
+           data-tag="blog"
+           data-author="" >
+            <span class="post-title" title="个人博客搭建-Hexo框架">个人博客搭建-Hexo框架</span>
+            <span class="post-date" title="2019-09-15 09:19:39">2019/09/15</span>
+        </a>
+        
+        <a  class="计算机知识 "
+           href="/2019/09/15/%E5%85%B3%E4%BA%8EUEFI%E4%B8%8EBIOS%E4%BB%A5%E5%8F%8AUEFI%E5%90%AF%E5%8A%A8%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F/"
+           data-tag="Hardware"
+           data-author="" >
+            <span class="post-title" title="关于UEFI与BIOS以及UEFI启动安装系统">关于UEFI与BIOS以及UEFI启动安装系统</span>
+            <span class="post-date" title="2019-09-15 10:20:39">2019/09/15</span>
+        </a>
+        
+        <a  class="生活记录 "
+           href="/2019/09/14/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/"
+           data-tag="blog,feeling"
+           data-author="" >
+            <span class="post-title" title="我的第一个博客">我的第一个博客</span>
+            <span class="post-date" title="2019-09-14 09:35:43">2019/09/14</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/10/11/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0(Assembly%20note)/"
+           data-tag="Hardware,Assembly"
+           data-author="" >
+            <span class="post-title" title="汇编语言语法笔记-Assembly">汇编语言语法笔记-Assembly</span>
+            <span class="post-date" title="2019-10-11 10:32:31">2019/10/11</span>
+        </a>
+        
+        <a  class="计算机知识 "
+           href="/2019/10/16/%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E5%82%A8%E5%AD%98%E4%B8%8E%E8%BF%90%E7%AE%97%E8%BF%87%E7%A8%8B/"
+           data-tag="Bin"
+           data-author="" >
+            <span class="post-title" title="浮点数的储存与运算过程">浮点数的储存与运算过程</span>
+            <span class="post-date" title="2019-10-16 09:35:43">2019/10/16</span>
+        </a>
+        
+        <a  class="计算机知识 "
+           href="/2019/10/16/%E7%A0%81%E8%A1%A8-ASC%E2%85%A1%E3%80%81Unicode%E3%80%81GBK/"
+           data-tag="Bin"
+           data-author="" >
+            <span class="post-title" title="码表-ASCⅡ、Unicode、GBK">码表-ASCⅡ、Unicode、GBK</span>
+            <span class="post-date" title="2019-10-16 09:34:43">2019/10/16</span>
+        </a>
+        
+        <a  class="结构算法 "
+           href="/2019/11/28/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AC%94%E8%AE%B0/"
+           data-tag="学习笔记"
+           data-author="" >
+            <span class="post-title" title="线性代数笔记">线性代数笔记</span>
+            <span class="post-date" title="2019-11-28 08:00:00">2019/11/28</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-Java练习-随机读写-顺序读写" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Java练习-随机读写/顺序读写</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="项目练习">项目练习</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color5">Java</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-11-22 23:21:40'>2019-11-22 22:45</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java练习-随机读写-顺序读写"><span class="toc-text">Java练习-随机读写/顺序读写</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#随机读写复制文件"><span class="toc-text">随机读写复制文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现思路"><span class="toc-text">实现思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码分析"><span class="toc-text">代码分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#顺序读写复制文件"><span class="toc-text">顺序读写复制文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现思路-1"><span class="toc-text">实现思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码分析-1"><span class="toc-text">代码分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#随机读写存取用户信息"><span class="toc-text">随机读写存取用户信息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#练习需求"><span class="toc-text">练习需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现思路-2"><span class="toc-text">实现思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码分析-2"><span class="toc-text">代码分析</span></a></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java练习-随机读写-顺序读写"><a href="#Java练习-随机读写-顺序读写" class="headerlink" title="Java练习-随机读写/顺序读写"></a>Java练习-随机读写/顺序读写</h1><h2 id="随机读写复制文件"><a href="#随机读写复制文件" class="headerlink" title="随机读写复制文件"></a>随机读写复制文件</h2><h3 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h3><ul>
+<li>随机读写使用 java.io.RandomAccessFile 类实现</li>
+<li>随机打开两个文件，一个读取，一个写入</li>
+<li>由于读写是字节读写，效率不高，所以通过定义数组来提高读写性能</li>
+</ul>
+<h3 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">RandomAccessFile src &#x3D; new RandomAccessFile(&quot;.&#x2F;demo.zip&quot;,&quot;r&quot;);  &#x2F;&#x2F;通过随机读写打开源文件，定义权限只读即可</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">RandomAccessFile desc &#x3D; new RandomAccessFile(&quot;.&#x2F;demo_cp.zip&quot;,&quot;rw&quot;);  &#x2F;&#x2F;通过随机读写打开目标文件，定义权限读写</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">byte[] buf &#x3D; new byte[1024*10];  &#x2F;&#x2F;为了提高速率使用字节数组</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">int len &#x3D; -1;  &#x2F;&#x2F;定义每次实际读取到的字节</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">		</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">while((len &#x3D; src.read(buf))!&#x3D;-1) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">	desc.write(buf,0,len);  &#x2F;&#x2F;只要读取到数据，就往目标文件中写入读取到长度的数据</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">System.out.println(&quot;复制完毕!&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">src.close();  &#x2F;&#x2F;记得关闭文件</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">desc.close();  &#x2F;&#x2F;记得关闭文件</span></pre></td></tr></table></figure>
+
+<h2 id="顺序读写复制文件"><a href="#顺序读写复制文件" class="headerlink" title="顺序读写复制文件"></a>顺序读写复制文件</h2><h3 id="实现思路-1"><a href="#实现思路-1" class="headerlink" title="实现思路"></a>实现思路</h3><ul>
+<li>顺序读写是通过 IO 流实现的，java.io.InputStream , java.io.OutputStream</li>
+<li>通过IO连接到两个文件，一个使用输入流，一个使用输出流</li>
+<li>由于读写是字节读写，效率不高，所以通过缓冲流的高级流来提高效率</li>
+</ul>
+<h3 id="代码分析-1"><a href="#代码分析-1" class="headerlink" title="代码分析"></a>代码分析</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">FileInputStream fis &#x3D; new FileInputStream(&quot;demo.zip&quot;);  &#x2F;&#x2F;定义输入流，连接到源文件</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">BufferedInputStream bis &#x3D; new BufferedInputStream(fis);  &#x2F;&#x2F;定义缓冲流，连接到输入流上，提高效率</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">		</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">FileOutputStream fos &#x3D; new FileOutputStream(&quot;demo_cp.zip&quot;);  &#x2F;&#x2F;定义输出流，连接到目标文件</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">BufferedOutputStream bos &#x3D; new BufferedOutputStream(fos);  &#x2F;&#x2F;定义缓冲流，连接到输出流上，提高效率</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">		</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">int d &#x3D; -1;  &#x2F;&#x2F;定义每次实际读取到的字节</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">while((d&#x3D;bis.read())!&#x3D;-1) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">	bos.write(d);  &#x2F;&#x2F;将读到的字节存储到缓冲流中</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">System.out.println(&quot;复制完毕!&quot;);		</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">bis.close();  &#x2F;&#x2F;只需要关闭最高层高级流即可，连接到后面的流会逐级关闭</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">bos.close();  &#x2F;&#x2F;执行缓冲流的flush()方法 或 缓冲区满了 或 缓冲流关闭时，缓冲流会向文件按缓冲大小写数据</span></pre></td></tr></table></figure>
+
+<h2 id="随机读写存取用户信息"><a href="#随机读写存取用户信息" class="headerlink" title="随机读写存取用户信息"></a>随机读写存取用户信息</h2><h3 id="练习需求"><a href="#练习需求" class="headerlink" title="练习需求"></a>练习需求</h3><ul>
+<li>实现1：完成用户注册功能，程序启动后顺序输入：用户名，密码，昵称，年龄，然后将其写入文件user.dat中保存</li>
+<li>实现2：修改昵称功能，程序启动后要求用户输入用户名和新昵称，然后将user.dat文件中对应的记录进行修改，如果输入的用户名在user.dat文件中不存在，则输出：查无此人</li>
+</ul>
+<h3 id="实现思路-2"><a href="#实现思路-2" class="headerlink" title="实现思路"></a>实现思路</h3><ul>
+<li>分析：设置用户名、密码、昵称为String类型，年龄为int类型</li>
+<li>定义格式：每条记录占用100字节，其中用户名，密码，昵称各占32字节，年龄占4字节</li>
+<li>操作：通过随机读写的指针对文件进行增改查操作</li>
+</ul>
+<h3 id="代码分析-2"><a href="#代码分析-2" class="headerlink" title="代码分析"></a>代码分析</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;通过控制台输入，获取注册信息</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">System.out.println(&quot;欢迎注册&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">Scanner scan &#x3D; new Scanner(System.in);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">System.out.println(&quot;请输入用户名&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">String user &#x3D; scan.next();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">System.out.println(&quot;请输入密码&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">String pwd &#x3D; scan.next();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">System.out.println(&quot;请输入昵称&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">String nick &#x3D; scan.next();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">System.out.println(&quot;请输入年龄&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">int age &#x3D; scan.nextInt();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">scan.close();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;随机打开用户文件，并将文件指针指向最后</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">RandomAccessFile raf &#x3D; new RandomAccessFile(&quot;user.dat&quot;,&quot;rw&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">raf.seek(raf.length());</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;定义字节数组存放数据</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">byte[] data;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;储存用户信息</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">data&#x3D; user.getBytes(&quot;utf-8&quot;);  &#x2F;&#x2F;将用户信息根据utf-8拆为字节数组</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">data &#x3D; Arrays.copyOf(data, 32);  &#x2F;&#x2F;将该数组扩容到32字节</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">raf.write(data);  &#x2F;&#x2F;写入该数组</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;同上</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">data &#x3D; pwd.getBytes(&quot;utf-8&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">data &#x3D; Arrays.copyOf(data, 32);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">raf.write(data);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;同上</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">data &#x3D; nick.getBytes(&quot;utf-8&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">data &#x3D; Arrays.copyOf(data, 32);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">raf.write(data);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;直接通过 writeInt() 方法将int值存入到文件中</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">raf.writeInt(age);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">raf.close();  &#x2F;&#x2F;关闭文件</span></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;通过控制台输入，获取修改信息</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">System.out.println(&quot;**修改昵称**&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">Scanner scan &#x3D; new Scanner(System.in);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">System.out.println(&quot;请输入用户名：&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">String name &#x3D; scan.nextLine();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">System.out.println(&quot;请输入新昵称：&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">String nick &#x3D; scan.nextLine();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">scan.close();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;随机打开用户文件</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">RandomAccessFile raf &#x3D; new RandomAccessFile(&quot;user.dat&quot;,&quot;rw&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">for(int i&#x3D;0;i&lt;raf.length()&#x2F;100;i++) &#123;  &#x2F;&#x2F;通过遍历查找用户，循环条件为条数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">	raf.seek(i*100);  &#x2F;&#x2F;确定指针位置</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    &#x2F;&#x2F;定义并读取32字节数据，返回字符串并清除空白</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">	byte[] data &#x3D; new byte[32];  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">	raf.read(data);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">	String user &#x3D; new String(data).trim();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">	&#x2F;&#x2F;判断是否为本条信息中的用户</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">	if(user.equals(name)) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">		raf.seek(raf.getFilePointer()+32);  &#x2F;&#x2F;指针指向本条信息昵称位置</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">        &#x2F;&#x2F;同上的写入操作</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">		data &#x3D; nick.getBytes();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">		data &#x3D; Arrays.copyOf(data, 32);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">		raf.write(data);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">		System.out.println(&quot;修改完成&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">		break;  &#x2F;&#x2F;完成任务，退出循环</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">	&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">    &#x2F;&#x2F;如果指针到了最后一条还是找到用户</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">	if(raf.getFilePointer()&#x3D;&#x3D;raf.length()-100+32) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">		System.out.println(&quot;查无此人&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">	&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">raf.close();  &#x2F;&#x2F;关闭文件</span></pre></td></tr></table></figure>
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>Java练习-随机读写/顺序读写</p>
+    
+    <p><span class="copy-title">本文作者:</span><a  title="John Doe">John Doe</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-11-22, 22:45:17</p>
+    <p><span class="copy-title">最后更新:</span>2019-11-22, 23:21:40</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/11/22/Java%E7%BB%83%E4%B9%A0-%E9%9A%8F%E6%9C%BA%E8%AF%BB%E5%86%99-%E9%A1%BA%E5%BA%8F%E8%AF%BB%E5%86%99/" title="Java练习-随机读写/顺序读写">http://yoursite.com/2019/11/22/Java%E7%BB%83%E4%B9%A0-%E9%9A%8F%E6%9C%BA%E8%AF%BB%E5%86%99-%E9%A1%BA%E5%BA%8F%E8%AF%BB%E5%86%99/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 Yelog</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#Java','#HTTP','#Web','#Eclipse','#blog','#MarkDown','#tools','#Environment','#CSS','#HTML','#JS','#JQ','#XML','#Hardware','#feeling','#Assembly','#Bin','#学习笔记',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

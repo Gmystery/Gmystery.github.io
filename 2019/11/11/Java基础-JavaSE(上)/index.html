@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Java基础-JavaSE(上) | Hexo</title>
+  <meta name="keywords" content=" Java ">
+  <meta name="description" content="Java基础-JavaSE(上) | Hexo">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Web基础-jQuery语言jQuery简介什么是jQuery jQuery是一个优秀的JavaScript框架，一个轻量级的JS库 它封装了JS、CSS、DOM，提供了一致的、简洁的API 兼容CSS3，以及兼容各种浏览器 注意：jQuery 2.x 开始不再支持IE6&#x2F;7&#x2F;8  如何使用jQuery 引入jQuery的js文件 可以通过本地文件导入，或者通过网络中jQuery的js文件地址 使">
+<meta name="keywords" content="JS,JQ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web基础-jQuery语言">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;Web%E5%9F%BA%E7%A1%80-jQuery%E8%AF%AD%E8%A8%80&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Web基础-jQuery语言jQuery简介什么是jQuery jQuery是一个优秀的JavaScript框架，一个轻量级的JS库 它封装了JS、CSS、DOM，提供了一致的、简洁的API 兼容CSS3，以及兼容各种浏览器 注意：jQuery 2.x 开始不再支持IE6&#x2F;7&#x2F;8  如何使用jQuery 引入jQuery的js文件 可以通过本地文件导入，或者通过网络中jQuery的js文件地址 使">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-03T07:57:24.000Z">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>John Doe</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/yelog" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="facebook" href="https://www.facebook.com/faker.tops" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-facebook"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="instagram" href="https://www.facebook.com/faker.tops" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-instagram"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="reddit" href="https://www.reddit.com/user/yelog/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-reddit"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="weibo" href="http://weibo.com/u/2307534817" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="jianshu" href="https://www.jianshu.com/u/ff56736de7cf" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-jianshu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="zhihu" href="https://www.zhihu.com/people/jaytp/activities" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="oschina" href="https://my.oschina.net/yelog" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-oschina"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="email" href="mailto:jaytp@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="kugou" href="https://www.kugou.com/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-kugou"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="neteasemusic" href="https://music.163.com/#/user/home?id=88151013" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-neteasemusic"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(26)</small></div></li>
+    
+        
+            
+            <li><div data-rel="语言编程">语言编程<small>(14)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="计算机知识">计算机知识<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具环境">工具环境<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="项目练习">项目练习<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="生活记录">生活记录<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="结构算法">结构算法<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="26">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color5">Java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">HTTP</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Web</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">Eclipse</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">blog</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">MarkDown</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">tools</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">Environment</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">CSS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">HTML</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">JS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">JQ</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">XML</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Hardware</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">feeling</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Assembly</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Bin</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">学习笔记</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/JavaEE-Web%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E9%A1%BA%E5%BA%8F/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="JavaEE-Web开发学习顺序">JavaEE-Web开发学习顺序</span>
+            <span class="post-date" title="2019-11-11 08:00:00">2019/11/11</span>
+        </a>
+        
+        <a  class="计算机知识 "
+           href="/2019/11/10/HTTP%E5%8D%8F%E8%AE%AE%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3/"
+           data-tag="HTTP,Web"
+           data-author="" >
+            <span class="post-title" title="HTTP协议简单理解">HTTP协议简单理解</span>
+            <span class="post-date" title="2019-11-10 08:35:25">2019/11/10</span>
+        </a>
+        
+        <a  class="工具环境 "
+           href="/2019/11/01/Eclipse%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E4%B8%8E%E7%BB%8F%E9%AA%8C/"
+           data-tag="Java,Eclipse"
+           data-author="" >
+            <span class="post-title" title="Eclipse使用技巧与经验">Eclipse使用技巧与经验</span>
+            <span class="post-date" title="2019-11-01 07:34:39">2019/11/01</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java内存管理">Java内存管理</span>
+            <span class="post-date" title="2019-11-11 07:32:31">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%9F%BA%E7%A1%80-JavaSE(%E4%B8%8B)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java基础-JavaSE(下)">Java基础-JavaSE(下)</span>
+            <span class="post-date" title="2019-11-11 08:00:04">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%9F%BA%E7%A1%80-JavaSE(%E4%B8%8A)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java基础-JavaSE(上)">Java基础-JavaSE(上)</span>
+            <span class="post-date" title="2019-11-11 08:00:03">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%9F%BA%E7%A1%80-%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80(Basic)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java基础-语言基础(Basic)">Java基础-语言基础(Basic)</span>
+            <span class="post-date" title="2019-11-11 08:00:01">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%9F%BA%E7%A1%80-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1(OOP)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java基础-面向对象(OOP)">Java基础-面向对象(OOP)</span>
+            <span class="post-date" title="2019-11-11 08:00:02">2019/11/11</span>
+        </a>
+        
+        <a  class="项目练习 "
+           href="/2019/11/23/Java%E5%AE%9E%E8%B7%B5-%E8%81%8A%E5%A4%A9%E5%AE%A4(C-S%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java实践-聊天室(C/S网络编程)">Java实践-聊天室(C/S网络编程)</span>
+            <span class="post-date" title="2019-11-23 09:25:17">2019/11/23</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/23/Java%E5%AE%9E%E8%B7%B5-WebServer(%E4%BB%BFTomcat)/"
+           data-tag="Java,Web"
+           data-author="" >
+            <span class="post-title" title="Java实践-WebServer(仿Tomcat)">Java实践-WebServer(仿Tomcat)</span>
+            <span class="post-date" title="2019-11-23 11:45:17">2019/11/23</span>
+        </a>
+        
+        <a  class="项目练习 "
+           href="/2019/11/22/Java%E5%AE%9E%E8%B7%B5-%E9%A3%9E%E6%9C%BA%E5%A4%A7%E6%88%98/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java实践-飞机大战">Java实践-飞机大战</span>
+            <span class="post-date" title="2019-11-22 21:22:46">2019/11/22</span>
+        </a>
+        
+        <a  class="项目练习 "
+           href="/2019/11/22/Java%E7%BB%83%E4%B9%A0-%E9%9A%8F%E6%9C%BA%E8%AF%BB%E5%86%99-%E9%A1%BA%E5%BA%8F%E8%AF%BB%E5%86%99/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java练习-随机读写/顺序读写">Java练习-随机读写/顺序读写</span>
+            <span class="post-date" title="2019-11-22 22:45:17">2019/11/22</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/09/15/MarkDown%E9%80%9A%E7%94%A8%E8%AF%AD%E6%B3%95/"
+           data-tag="blog,MarkDown"
+           data-author="" >
+            <span class="post-title" title="MarkDown通用语法">MarkDown通用语法</span>
+            <span class="post-date" title="2019-09-15 09:20:39">2019/09/15</span>
+        </a>
+        
+        <a  class="工具环境 "
+           href="/2019/11/11/Maven%E5%85%A5%E9%97%A8%E4%B8%8E%E8%AE%A4%E8%AF%86/"
+           data-tag="tools,Environment"
+           data-author="" >
+            <span class="post-title" title="Maven入门与认识">Maven入门与认识</span>
+            <span class="post-date" title="2019-11-11 11:30:00">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Web%E5%9F%BA%E7%A1%80-CSS%E8%AF%AD%E8%A8%80/"
+           data-tag="Web,CSS"
+           data-author="" >
+            <span class="post-title" title="Web基础-CSS语言">Web基础-CSS语言</span>
+            <span class="post-date" title="2019-11-11 08:00:06">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Web%E5%9F%BA%E7%A1%80-HTML%E8%AF%AD%E8%A8%80/"
+           data-tag="Web,HTML"
+           data-author="" >
+            <span class="post-title" title="Web基础-HTML语言">Web基础-HTML语言</span>
+            <span class="post-date" title="2019-11-11 08:00:05">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/29/Web%E5%9F%BA%E7%A1%80-JavaScript%E8%AF%AD%E8%A8%80/"
+           data-tag="JS"
+           data-author="" >
+            <span class="post-title" title="Web基础-JavaScript语言">Web基础-JavaScript语言</span>
+            <span class="post-date" title="2019-11-29 09:05:20">2019/11/29</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/12/02/Web%E5%9F%BA%E7%A1%80-jQuery%E8%AF%AD%E8%A8%80/"
+           data-tag="JS,JQ"
+           data-author="" >
+            <span class="post-title" title="Web基础-jQuery语言">Web基础-jQuery语言</span>
+            <span class="post-date" title="2019-12-02 11:44:24">2019/12/02</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/15/XML%E5%8F%AF%E6%89%A9%E5%B1%95%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80/"
+           data-tag="XML"
+           data-author="" >
+            <span class="post-title" title="XML可扩展标记语言">XML可扩展标记语言</span>
+            <span class="post-date" title="2019-11-15 18:17:00">2019/11/15</span>
+        </a>
+        
+        <a  class="项目练习 "
+           href="/2019/09/15/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA-Hexo%E6%A1%86%E6%9E%B6/"
+           data-tag="blog"
+           data-author="" >
+            <span class="post-title" title="个人博客搭建-Hexo框架">个人博客搭建-Hexo框架</span>
+            <span class="post-date" title="2019-09-15 09:19:39">2019/09/15</span>
+        </a>
+        
+        <a  class="计算机知识 "
+           href="/2019/09/15/%E5%85%B3%E4%BA%8EUEFI%E4%B8%8EBIOS%E4%BB%A5%E5%8F%8AUEFI%E5%90%AF%E5%8A%A8%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F/"
+           data-tag="Hardware"
+           data-author="" >
+            <span class="post-title" title="关于UEFI与BIOS以及UEFI启动安装系统">关于UEFI与BIOS以及UEFI启动安装系统</span>
+            <span class="post-date" title="2019-09-15 10:20:39">2019/09/15</span>
+        </a>
+        
+        <a  class="生活记录 "
+           href="/2019/09/14/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/"
+           data-tag="blog,feeling"
+           data-author="" >
+            <span class="post-title" title="我的第一个博客">我的第一个博客</span>
+            <span class="post-date" title="2019-09-14 09:35:43">2019/09/14</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/10/11/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0(Assembly%20note)/"
+           data-tag="Hardware,Assembly"
+           data-author="" >
+            <span class="post-title" title="汇编语言语法笔记-Assembly">汇编语言语法笔记-Assembly</span>
+            <span class="post-date" title="2019-10-11 10:32:31">2019/10/11</span>
+        </a>
+        
+        <a  class="计算机知识 "
+           href="/2019/10/16/%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E5%82%A8%E5%AD%98%E4%B8%8E%E8%BF%90%E7%AE%97%E8%BF%87%E7%A8%8B/"
+           data-tag="Bin"
+           data-author="" >
+            <span class="post-title" title="浮点数的储存与运算过程">浮点数的储存与运算过程</span>
+            <span class="post-date" title="2019-10-16 09:35:43">2019/10/16</span>
+        </a>
+        
+        <a  class="计算机知识 "
+           href="/2019/10/16/%E7%A0%81%E8%A1%A8-ASC%E2%85%A1%E3%80%81Unicode%E3%80%81GBK/"
+           data-tag="Bin"
+           data-author="" >
+            <span class="post-title" title="码表-ASCⅡ、Unicode、GBK">码表-ASCⅡ、Unicode、GBK</span>
+            <span class="post-date" title="2019-10-16 09:34:43">2019/10/16</span>
+        </a>
+        
+        <a  class="结构算法 "
+           href="/2019/11/28/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AC%94%E8%AE%B0/"
+           data-tag="学习笔记"
+           data-author="" >
+            <span class="post-title" title="线性代数笔记">线性代数笔记</span>
+            <span class="post-date" title="2019-11-28 08:00:00">2019/11/28</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-Java基础-JavaSE(上)" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Java基础-JavaSE(上)</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="语言编程">语言编程</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color5">Java</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-11-25 08:40:04'>2019-11-11 08:00</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java基础-JavaSE-上"><span class="toc-text">Java基础-JavaSE(上)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaSE基础"><span class="toc-text">JavaSE基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java包结构"><span class="toc-text">Java包结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文档注释"><span class="toc-text">文档注释</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串操作"><span class="toc-text">字符串操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本特性"><span class="toc-text">基本特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用方法"><span class="toc-text">使用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-lang-String"><span class="toc-text">java.lang.String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-lang-StringBuilder-StringBuffer"><span class="toc-text">java.lang.StringBuilder/StringBuffer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达式"><span class="toc-text">正则表达式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object、包装类"><span class="toc-text">Object、包装类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-toString"><span class="toc-text">Object.toString()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-equals"><span class="toc-text">Object.equals()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#包装类"><span class="toc-text">包装类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#包装类的创建方法："><span class="toc-text">包装类的创建方法：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#包装类转换为基本类型方法："><span class="toc-text">包装类转换为基本类型方法：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#包装类的常用API"><span class="toc-text">包装类的常用API</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#日期操作"><span class="toc-text">日期操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#java-util-Date"><span class="toc-text">java.util.Date</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-text-SimpleDateFormat"><span class="toc-text">java.text.SimpleDateFormat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-util-Calendar"><span class="toc-text">java.util.Calendar</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件及随机读写File、RandomAccessFile"><span class="toc-text">文件及随机读写File、RandomAccessFile</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#java-io-File"><span class="toc-text">java.io.File</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-io-RandomAccessFile"><span class="toc-text">java.io.RandomAccessFile</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IO流操作"><span class="toc-text">IO流操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字节流"><span class="toc-text">字节流</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件流"><span class="toc-text">文件流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缓冲流"><span class="toc-text">缓冲流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象流"><span class="toc-text">对象流</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符流"><span class="toc-text">字符流</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#转换流"><span class="toc-text">转换流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缓冲字符流"><span class="toc-text">缓冲字符流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#行刷新缓冲字符流"><span class="toc-text">行刷新缓冲字符流</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异常处理、异常API"><span class="toc-text">异常处理、异常API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#异常简介"><span class="toc-text">异常简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义异常"><span class="toc-text">自定义异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#处理异常方式"><span class="toc-text">处理异常方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP通信"><span class="toc-text">TCP通信</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#java-net-Socket"><span class="toc-text">java.net.Socket</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#java-net-InetAddress"><span class="toc-text">java.net.InetAddress</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-net-ServerSocket"><span class="toc-text">java.net.ServerSocket</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#反射机制"><span class="toc-text">反射机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#反射基础"><span class="toc-text">反射基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#获取Class对象的方式"><span class="toc-text">获取Class对象的方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-lang-Class"><span class="toc-text">java.lang.Class</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-lang-reflect-Method"><span class="toc-text">java.lang.reflect.Method</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lambda函数式"><span class="toc-text">Lambda函数式</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java基础-JavaSE-上"><a href="#Java基础-JavaSE-上" class="headerlink" title="Java基础-JavaSE(上)"></a>Java基础-JavaSE(上)</h1><h2 id="JavaSE基础"><a href="#JavaSE基础" class="headerlink" title="JavaSE基础"></a>JavaSE基础</h2><h3 id="Java包结构"><a href="#Java包结构" class="headerlink" title="Java包结构"></a>Java包结构</h3><table>
+<thead>
+<tr>
+<th>包名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>java.lang</td>
+<td>最基础的类JVM默认导入可以直接使用的</td>
+</tr>
+<tr>
+<td>java.util</td>
+<td>常用工具，如集合、随机数、日历、时钟等</td>
+</tr>
+<tr>
+<td>java.io</td>
+<td>文件操作、输入/输出操作</td>
+</tr>
+<tr>
+<td>java.net</td>
+<td>网络操作</td>
+</tr>
+<tr>
+<td>java.math</td>
+<td>数学运算相关操作</td>
+</tr>
+<tr>
+<td>java.security</td>
+<td>安全相关操作</td>
+</tr>
+<tr>
+<td>java.sql</td>
+<td>数据库访问</td>
+</tr>
+<tr>
+<td>java.text</td>
+<td>处理文字、日期、数字、信息的格式</td>
+</tr>
+</tbody></table>
+<h3 id="文档注释"><a href="#文档注释" class="headerlink" title="文档注释"></a>文档注释</h3><p>使用<code>/** */</code>进行标注</p>
+<table>
+<thead>
+<tr>
+<th>常用</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>@author</td>
+<td>作者，一般英文名</td>
+</tr>
+<tr>
+<td>@since</td>
+<td>始于某JDK开发环境</td>
+</tr>
+<tr>
+<td>@version</td>
+<td>版本号，如1.0</td>
+</tr>
+<tr>
+<td>@see</td>
+<td>与某些类有关系，建议查看类，如java.lang.String</td>
+</tr>
+<tr>
+<td>@param</td>
+<td>用于说明传入的参数信息</td>
+</tr>
+<tr>
+<td>@return</td>
+<td>用于说明返回值</td>
+</tr>
+</tbody></table>
+<h2 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h2><h3 id="基本特性"><a href="#基本特性" class="headerlink" title="基本特性"></a>基本特性</h3><ul>
+<li>被final修饰，不能被继承</li>
+<li>内部储存的是char数组-char[]</li>
+<li>储存的对象不可更改-final<blockquote>
+<p>源代码<code>private final char value[]</code></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><ol>
+<li>Java推荐我们使用字面量形式创建字符串对象，因为只有使用字面量创建时才会检查要不要被重用</li>
+<li>new String()创建对象时一定会新生成一个对象，而且字符串对象在改变时(计算)时一定会创建新的字符串对象(就算值相同，就算在创建时，都不会重用)</li>
+<li>编译器：在编译期会计算好能确定一个计算表达式结果的值，并将结果编译到class文件中，不会影响执行性能，如<code>String s=&quot;123&quot;+&quot;abc&quot;</code>编译到class是<code>String s=&quot;123abc&quot;</code></li>
+<li>一定注意char与int的加减再与String拼接问题（注意单双引号），如：<code>&#39;a&#39;+1+&quot;b&quot; : 98b</code></li>
+</ol>
+<h3 id="java-lang-String"><a href="#java-lang-String" class="headerlink" title="java.lang.String"></a>java.lang.String</h3><ul>
+<li>构造方法：<code>String 名 = &quot;xx&quot;</code></li>
+<li>构造方法：<code>String 名 = new String(String str)</code></li>
+<li>构造方法：<code>String 名 = new String(Byte data[,int start,int length][,String cs])</code>默认/cs指定字符集将字节数组转为String</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>String类的API名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int length()</td>
+<td>获取当前字符串长度(字符个数)</td>
+</tr>
+<tr>
+<td>int indexOf(String str[,int index])</td>
+<td>[从index位置开始]查找str在字符串中首位的位置，如果没有返回-1</td>
+</tr>
+<tr>
+<td>int lastIndexOf(String str)</td>
+<td>查找str在字符串中最后出现的首位的位置，如果没有返回-1</td>
+</tr>
+<tr>
+<td>String substring(int start[,int end])</td>
+<td>截取范围内的字符串，含头不含尾;不写end直接截取到末尾</td>
+</tr>
+<tr>
+<td>String trim()</td>
+<td>去除当前字符串两边的空白字符</td>
+</tr>
+<tr>
+<td>char charAt(int index)</td>
+<td>获取当前字符串中指定位置的字符</td>
+</tr>
+<tr>
+<td>boolean startsWith(String str)<br>boolean endsWith(String str)</td>
+<td>判断当前字符是否是以给定的字符串开始或结尾的</td>
+</tr>
+<tr>
+<td>String toUpperCase()<br>String toLowerCase()</td>
+<td>将当前字符串中的英文部分转换为全大写或全小写</td>
+</tr>
+<tr>
+<td>String static valueOf()</td>
+<td>转化为字符串，还有一种方法<code>+&quot;&quot;</code>，但代码性能更好</td>
+</tr>
+<tr>
+<td>byte[] getBytes([String cs])</td>
+<td>将当前字符串按照系统默认/cs指定字符集转换为字节</td>
+</tr>
+<tr>
+<td>boolean matches(RegEx)</td>
+<td>将一个字符串与正则表达式匹配</td>
+</tr>
+<tr>
+<td>String[] split(String RegEx)</td>
+<td>将字符串根据正则表达式拆分分隔成字符串数组</td>
+</tr>
+<tr>
+<td>String replaceAll(String RegEx,String replacecement)</td>
+<td>将字符串中匹配到的字符串替换成replacecement</td>
+</tr>
+</tbody></table>
+<h3 id="java-lang-StringBuilder-StringBuffer"><a href="#java-lang-StringBuilder-StringBuffer" class="headerlink" title="java.lang.StringBuilder/StringBuffer"></a>java.lang.StringBuilder/StringBuffer</h3><p>String字符串只要一改变就会创建新对象，Java对String的优化<strong>只针对重用不针对修改</strong>，因此java提供了一个类：java.lang.StringBuilder，该类内部维护了一个可变的字符数组，修改都在这里进行，因此解决了字符串修改带来的问题。</p>
+<blockquote>
+<p>注：StringBuilder本身不是字符串类，只是用来修改字符串的API,提供了修字符串的操作</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">StringBuilder builder &#x3D; new StringBuilder([String])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">String s &#x3D; builder.toString();</span></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>StringBuilder类的API名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>StringBuilder append(String str)</td>
+<td>追加字符串</td>
+</tr>
+<tr>
+<td>StringBuilder insert(int dstOffset,String s)</td>
+<td>插入字符串</td>
+</tr>
+<tr>
+<td>StringBuilder delete(int start,int end)</td>
+<td>删除字符串</td>
+</tr>
+<tr>
+<td>StringBuilder replace(int start,int end,String str)</td>
+<td>替换字符串</td>
+</tr>
+<tr>
+<td>StringBuilder reverse()</td>
+<td>字符串反转</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>StringBuilder类型的方法返回的都是StringBuilder的类型，返回的都是自己的引用，所以可以简化连续操作为：<code>builder.append().insert().delete()</code><br>字符串的拼接操作是通过StringBuilder的append方法实现的</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>.</th>
+<th>.</th>
+<th>.</th>
+<th>.</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>StringBuffer</td>
+<td>线程安全的</td>
+<td>同步处理的</td>
+<td>性能稍慢</td>
+</tr>
+<tr>
+<td>StringBuilder</td>
+<td>线程非安全的</td>
+<td>并发处理的</td>
+<td>性能稍快</td>
+</tr>
+</tbody></table>
+<h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><table>
+<thead>
+<tr>
+<th>字符集合</th>
+<th>说明</th>
+<th>量词</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[abc]</td>
+<td>a或b或c</td>
+<td>{n}</td>
+<td>出现n次</td>
+</tr>
+<tr>
+<td>[^abc]</td>
+<td>不是a/b/c</td>
+<td>{n,m}</td>
+<td>出现n-m次</td>
+</tr>
+<tr>
+<td>[a-zA-Z0-9]</td>
+<td>字母及数字</td>
+<td>{n,}</td>
+<td>出现最少n次</td>
+</tr>
+<tr>
+<td>[a-z&amp;&amp;[^bc]]</td>
+<td>除了b/c的小写字母</td>
+<td>{0,m}</td>
+<td>出现最多m次</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>=[0-9]</td>
+<td>?</td>
+<td>一次或者没有={0,1}</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>=[a-zA-Z0-9_]</td>
+<td>+</td>
+<td>至少出现一次={1,}</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>空白=[\t\n\x0B\f\r]</td>
+<td>*</td>
+<td>出现任意次={0,}</td>
+</tr>
+<tr>
+<td>注意：</td>
+<td><code>.</code>表示任意字符，<code>^</code>、<code>&amp;</code>表示开始与结束<br><code>\D\W\S</code>是与之小写相反的含义</td>
+<td>()</td>
+<td>用于分组同时</td>
+</tr>
+</tbody></table>
+<ul>
+<li>\w  原词：word   含义： 查找单词字符</li>
+<li>\b   原词：border  含义：匹配单词边界</li>
+<li>\d   原词：digital    含义：查找数字</li>
+<li>\s   原词：space    含义：查找空白字符</li>
+<li>\n  原词：newline  含义：查找换行符</li>
+<li>\f   原词：form feed  含义：查找换页符</li>
+<li>\r   原词：retrun 含义：查找回车符</li>
+<li>\t   原词：tab      含义：查找制表符</li>
+<li>\v  原词：Vertical tab  含义：垂直制表符</li>
+</ul>
+<blockquote>
+<p>Java中会看到<code>\\.</code>是因为Java为正则表达式的转义斜线进行了转义<br><code>.</code>在正则表达式中表示所有字符<code>\.</code>是正则表达式来转义为普通的点<code>\\.</code>是因为java认为<code>\.</code>语法有问题，需要把<code>\</code>转义为普通<code>\</code></p>
+</blockquote>
+<h2 id="Object、包装类"><a href="#Object、包装类" class="headerlink" title="Object、包装类"></a>Object、包装类</h2><h3 id="Object-toString"><a href="#Object-toString" class="headerlink" title="Object.toString()"></a>Object.toString()</h3><ul>
+<li>Java语言中很多地方都会默认调用对象的toString方法，如字符串+对象、输出语句、Arrays.toString()等</li>
+<li>toString()方法默认返回的是：类名@地址</li>
+<li>Java自带类基本都重写了该方法，强烈建议自己写的类也重写该方法</li>
+<li>重写toString方法原则上返回的字符串应当包含当前对象的属性信息</li>
+</ul>
+<h3 id="Object-equals"><a href="#Object-equals" class="headerlink" title="Object.equals()"></a>Object.equals()</h3><ul>
+<li>规定用于对比两个对象是否“相同”</li>
+<li>Java自带类基本都重写了该方法，如果不重写，底层相当于使用<code>==</code>判断</li>
+<li><code>==</code>用于比较两者是否相同：基本数据类型的值/引用数据类型的引用</li>
+</ul>
+<h3 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h3><p>8种基本类型是以值的形态存在的，不是以对象的形态存在的，所以封装、多态等不适用于基本数据类型，为解决这个问题，Java提供了包装类：</p>
+<ol>
+<li>包装类是final修饰的，没有子类。内部储存值也是final修饰，不可更改</li>
+<li>Integer、Long、Double、Short、Float、Byte、Character、Boolean</li>
+</ol>
+<h4 id="包装类的创建方法："><a href="#包装类的创建方法：" class="headerlink" title="包装类的创建方法："></a>包装类的创建方法：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Integer i1 &#x3D; Integer.valueOf(int);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Integer i2 &#x3D; new Integer(int);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">Integer i3 &#x3D; 120;</span></pre></td></tr></table></figure>
+<ul>
+<li>建议使用<code>valueOf()</code>方法创建对象，通过这种方法有些包装类会有类似String那样重用现象：如Integer重用-128～127，但是Double不重用，等同于new</li>
+<li>Byte、Character、Integer、Short、Long可以，另三个否</li>
+<li>JDK1.5及以上可以包装类&lt;–&gt;基本数据类型直接赋值转换，编译期编译器补全代码，叫做自动装箱拆箱特性</li>
+</ul>
+<h4 id="包装类转换为基本类型方法："><a href="#包装类转换为基本类型方法：" class="headerlink" title="包装类转换为基本类型方法："></a>包装类转换为基本类型方法：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">int i &#x3D; i1.intValue();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">double d &#x3D; i1.doubleValue();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">byte b &#x3D; i1.byteValue();</span></pre></td></tr></table></figure>
+<ul>
+<li>每个数字包装类都有这些类似方法，包括大值转小值</li>
+<li>大转小会精度缺失，二进制高位省略</li>
+</ul>
+<h4 id="包装类的常用API"><a href="#包装类的常用API" class="headerlink" title="包装类的常用API"></a>包装类的常用API</h4><table>
+<thead>
+<tr>
+<th>java.lang.Number类API</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int Interger.parseInt(String str)</td>
+<td>将字符串类型转换为对应基本类型，”123.0”在此会报错，只能”123”</td>
+</tr>
+<tr>
+<td>double Double.parseDouble(String str)</td>
+<td>但是注意格式要正确，否则抛出NumberFormatException异常</td>
+</tr>
+</tbody></table>
+<h2 id="日期操作"><a href="#日期操作" class="headerlink" title="日期操作"></a>日期操作</h2><h3 id="java-util-Date"><a href="#java-util-Date" class="headerlink" title="java.util.Date"></a>java.util.Date</h3><ul>
+<li>Date的每一个实例用于表示一个时间，内部维护一个long值，该值保存的是自1970-1-1到当前Date所表示的时间之间经过的毫秒</li>
+<li>注意其Date表示的时间是格林尼治时间，为0时区时间，系统显示时会添加时区时间显示</li>
+<li>Date内部由于存在千年虫和时区的问题，因此大部分方法都被声明为过时的，不再建议使用，大多数Calendar类取代</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>有参构造</td>
+<td>分配 Date 对象并初始化此对象当前时间</td>
+</tr>
+<tr>
+<td>有参构造Date(long date)</td>
+<td>分配 Date 对象并初始化此对象</td>
+</tr>
+<tr>
+<td>void setTime(long time)</td>
+<td>设置此 Date 对象，以表示1970-1-1 00:00:00 GMT以后 time 毫秒的时间点</td>
+</tr>
+<tr>
+<td>long getTime()</td>
+<td>返回自1970-1-1 00:00:00 GMT以来此 Date 对象表示的毫秒数</td>
+</tr>
+<tr>
+<td>boolean after(Date when)</td>
+<td>测试此日期是否在指定日期之后</td>
+</tr>
+<tr>
+<td>boolean before(Date when)</td>
+<td>测试此日期是否在指定日期之前</td>
+</tr>
+<tr>
+<td>Object clone()</td>
+<td>返回此对象的副本</td>
+</tr>
+<tr>
+<td>int compareTo(Date anotherDate)</td>
+<td>比较两个日期的顺序</td>
+</tr>
+</tbody></table>
+<h3 id="java-text-SimpleDateFormat"><a href="#java-text-SimpleDateFormat" class="headerlink" title="java.text.SimpleDateFormat"></a>java.text.SimpleDateFormat</h3><ul>
+<li>该类是用于格式化和解析日期的具体类，主要用于格式化(日期-&gt;文本)，解析(文本-&gt;日期)操作</li>
+<li>构造方法：主要是 无参构造 和 传入一个给定模式的 有参构造，特定模式使用String表示，表示方法如下表</li>
+<li>方法：<code>String format(Date date)</code> 将给定的时间对象按照格式转换为字符串</li>
+<li>方法：<code>Date parse(String source)</code> 将给定的字符串按照格式返回一个Date对象 </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>含义</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>y</td>
+<td>年</td>
+<td>yyyy年：2019年；yy年：19年</td>
+</tr>
+<tr>
+<td>M</td>
+<td>月</td>
+<td>MM月：01月；M月：1月</td>
+</tr>
+<tr>
+<td>d</td>
+<td>日</td>
+<td>dd日：06日；d日：6日</td>
+</tr>
+<tr>
+<td>E</td>
+<td>星期</td>
+<td>有E这个标识 则显示 星期日 或 Sun</td>
+</tr>
+<tr>
+<td>a</td>
+<td>AM或PM标识</td>
+<td>显示 下午(AM) 或 上午(PM)</td>
+</tr>
+<tr>
+<td>H</td>
+<td>小时(24小时制)</td>
+<td></td>
+</tr>
+<tr>
+<td>h</td>
+<td>小时(12小时制)</td>
+<td></td>
+</tr>
+<tr>
+<td>m</td>
+<td>分钟</td>
+<td></td>
+</tr>
+<tr>
+<td>s</td>
+<td>秒</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="java-util-Calendar"><a href="#java-util-Calendar" class="headerlink" title="java.util.Calendar"></a>java.util.Calendar</h3><ul>
+<li>Calendar 抽象类，规定了操作时间的相关方法等</li>
+<li>常用实现类：java.util.GregorianCalendar 格里高利历(阳历)</li>
+<li>我们可以通过Calendar提供的静态方法getInstance来根据当前系统所在地区获取一个使用的实现类，大部分地区获取的都是格里高利历实现类</li>
+<li>特别注意：Calendar中规定<font color="red">月份从0开始的</font>，使用表示记得+1</li>
+<li>特别注意：Calendar中规定<font color="red">星期从周日开始的</font>，使用表示记得更改习惯</li>
+<li>特别注意：Calendar中调用set()方法等设定时间时，<font color="red">底层并未进行计算</font>，只有执行了getTime()或add()方法后才会进行刷新，特别注意防止在刷新前有多个set()方法同时影响同一个值，这样的话后面的方法会覆盖掉前面的方法</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static Calendar getInstance()</td>
+<td>使用默认时区和语言环境获得一个日历</td>
+</tr>
+<tr>
+<td>Date getTime()</td>
+<td>返回一个表示此 Calendar 时间值的 Date 对象</td>
+</tr>
+<tr>
+<td>void setTime(Date date)</td>
+<td>使用给定的 Date 设置此 Calendar 的时间</td>
+</tr>
+<tr>
+<td>int get(int field)</td>
+<td>返回给定日历字段的值</td>
+</tr>
+<tr>
+<td>void set(int field,int value)</td>
+<td>将给定的日历字段设置为给定值</td>
+</tr>
+<tr>
+<td>int getActualMaximum(int field)</td>
+<td>返回指定日历字段可能拥有的最大值</td>
+</tr>
+<tr>
+<td>abstract void add(int field, int amount)</td>
+<td>根据日历的规则，为给定的日历字段添加或减去指定的时间量</td>
+</tr>
+</tbody></table>
+<ul>
+<li>和天有关的时间分量：</li>
+<li>DATE:月中的天</li>
+<li>DATE_OF_MONTH:月中的天，与DATE是一样的</li>
+<li>DATE_OF_WEEK:周中的天，就是星期几</li>
+<li>DATE_OF_YEAR:年中的天，今年的第几天</li>
+</ul>
+<h2 id="文件及随机读写File、RandomAccessFile"><a href="#文件及随机读写File、RandomAccessFile" class="headerlink" title="文件及随机读写File、RandomAccessFile"></a>文件及随机读写File、RandomAccessFile</h2><h3 id="java-io-File"><a href="#java-io-File" class="headerlink" title="java.io.File"></a>java.io.File</h3><ul>
+<li>操作文件或目录（创建，删除）</li>
+<li>访问其表示的文件或目录的属性（名字,大小等）</li>
+<li>访问一个目录的子项内容</li>
+<li>但是<strong>不能访问</strong>文件数据</li>
+<li>绝对路径与相对路径，推荐使用相对路，如<code>[./]src/xxx.java</code>或<code>xx.class.getResource(/img/xx.png)</code>等</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>File类常用的API名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>File File(String str)</td>
+<td>str为路径名(文件/目录)</td>
+</tr>
+<tr>
+<td>String gerName()</td>
+<td>返回文件名</td>
+</tr>
+<tr>
+<td>Long length()</td>
+<td>返回文件大小，单位大小LONG</td>
+</tr>
+<tr>
+<td>boolean canRead()</td>
+<td>判断是否可读</td>
+</tr>
+<tr>
+<td>boolean canWrite()</td>
+<td>判断是否可写</td>
+</tr>
+<tr>
+<td>boolean isHidden()</td>
+<td>判断是否为隐藏文件</td>
+</tr>
+<tr>
+<td>boolean exists()</td>
+<td>判断文件是否存在</td>
+</tr>
+<tr>
+<td>boolean createNewFile()</td>
+<td>创建新文件-IOException</td>
+</tr>
+<tr>
+<td>boolean delete()</td>
+<td>删除文件</td>
+</tr>
+<tr>
+<td>boolean mkdir()</td>
+<td>创建单个文件夹,父目录没有会失败</td>
+</tr>
+<tr>
+<td>boolean mkdirs()</td>
+<td>创建多层多个文件夹,父目录没有会创建</td>
+</tr>
+<tr>
+<td>boolean delete()</td>
+<td>删除空目录,注意有任何都不成功</td>
+</tr>
+<tr>
+<td>boolean isFile()</td>
+<td>判断是否文件</td>
+</tr>
+<tr>
+<td>boolean isDirectory()</td>
+<td>判断是否目录</td>
+</tr>
+<tr>
+<td>File[] listFiles([FileFilter])</td>
+<td>返回当前目录下[过滤后的]所有文件及目录</td>
+</tr>
+</tbody></table>
+<h3 id="java-io-RandomAccessFile"><a href="#java-io-RandomAccessFile" class="headerlink" title="java.io.RandomAccessFile"></a>java.io.RandomAccessFile</h3><ul>
+<li>专门用来读写文件数据的API，其基于指针对文件进行随机读写操作，读写操作非常灵活</li>
+<li>构造方法常用两个：<code>RandomAccessFile(String name,String mode)</code>和<code>RandomAccessFile(File file,String mode)</code></li>
+<li>模式(mode):”rw”读写模式，”r”只读模式</li>
+<li>如果没有该文件，读写模式会自动创建，只读模式抛异常</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>RandomAccessFile类常用的API名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int read()</td>
+<td>读一个字节数据，当读到末位返回-1</td>
+</tr>
+<tr>
+<td>int read(byte[] data)</td>
+<td>块读取，一次读取最多传入数组长度的数据到该数组，返回读取到的长度值，-1为末尾</td>
+</tr>
+<tr>
+<td>void write(int)</td>
+<td>写一个字节数据int的低八位</td>
+</tr>
+<tr>
+<td>void write(byte[] data[,int offset,int len])</td>
+<td>块写入，把数组的内容写入文件，从offset到len，解决最后一次长度问题</td>
+</tr>
+<tr>
+<td>long getFilePointer()</td>
+<td>返回当前RAF的指针位置</td>
+</tr>
+<tr>
+<td>void seek(long pos)</td>
+<td>设置指针位置</td>
+</tr>
+<tr>
+<td>int readInt()</td>
+<td>写4字节数据,readLong(long)写8字节数据,readDouble(double)写16字节数据等等</td>
+</tr>
+<tr>
+<td>void writeInt(int)</td>
+<td>写4字节数据,writeLong(long)写8字节数据,writeDouble(double)写16字节数据等等</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>关闭文件</td>
+</tr>
+</tbody></table>
+<h2 id="IO流操作"><a href="#IO流操作" class="headerlink" title="IO流操作"></a>IO流操作</h2><ul>
+<li>节点流(低级流)：实际连接程序与数据源，最基础的流</li>
+<li>处理流(高级流)：必须连接在其他流上存在，是对一个已存在的流的连接和封装</li>
+<li>终端流：直接进行操作的流，非终端流一般称为中间流</li>
+<li>流的操作一层一层套用，注意有的高级流可能内嵌了其他高级流或低级流</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">FileOutputStream fos &#x3D; new FileOutputStream(&quot;pw.txt&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">OutputStreamWriter osw &#x3D; new OutputStreamWriter(fos,&quot;utf-8&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">BufferedWriter bw &#x3D; new BufferedWriter(osw);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">PrintWriter pw &#x3D; new PrintWriter(bw);</span></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="center">.</th>
+<th align="center">字节流</th>
+<th align="center">字符流</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">超类</td>
+<td align="center">InputStream/OutputStream</td>
+<td align="center">Reader/Writer</td>
+</tr>
+<tr>
+<td align="center">低级流</td>
+<td align="center">文件流</td>
+<td align="center">\</td>
+</tr>
+<tr>
+<td align="center">高级流</td>
+<td align="center">缓冲流<br>对象流</td>
+<td align="center">字符缓冲流<br>行刷新的缓冲字节流</td>
+</tr>
+</tbody></table>
+<h2 id="字节流"><a href="#字节流" class="headerlink" title="字节流"></a>字节流</h2><ul>
+<li><code>abstract java.io.InputStream</code>：所有字节输入流的抽象超类，规定了读取字节的相关方法，抽象方法：<code>int read()</code>、<code>int read(byte[] data)</code>等</li>
+<li><code>abstract java.io.OutputStream</code>：多有字节输出流的抽象超类，规定了写出字节的相关方法，抽象方法：<code>void write(int d);</code>、<code>void write(byte[] data)</code>等</li>
+</ul>
+<h3 id="文件流"><a href="#文件流" class="headerlink" title="文件流"></a>文件流</h3><ul>
+<li>文件流是以对节点流(低级流)，用于对文件进行读写的流，功能上与RandomAccessFile一样</li>
+<li>RAF是随机读写形式，文件流是顺序读写形式</li>
+<li>虽然RAF更灵活，但基于流连接可以完成复杂数据的读写</li>
+<li><code>FileInputStream(File file[,boolean append])</code></li>
+<li><code>FileInputStream(String path[,boolean append])</code></li>
+</ul>
+<h3 id="缓冲流"><a href="#缓冲流" class="headerlink" title="缓冲流"></a>缓冲流</h3><ul>
+<li>缓冲流是一对高级流，在流连接中的作用是加快数据的读写效率</li>
+<li>他们会将读写的数据统一转换为块读写以达到效率提高的目的</li>
+<li><code>java.io.BufferedInputStream(InputStream in)</code></li>
+<li><code>java.io.BufferedOutputStream(OutputStream out)</code></li>
+<li>关闭时会先关闭前面的流最后关闭自己，所以只需要关闭离程序最近的高级流就可以</li>
+<li>输出流中<code>void flush()</code>强制清空缓冲区，缓冲区未满时及时完成工作</li>
+<li>close()方法包含flush()方法，但注意有需求时自己调用flush()</li>
+</ul>
+<h3 id="对象流"><a href="#对象流" class="headerlink" title="对象流"></a>对象流</h3><ul>
+<li>对象流是一对高级流，可以读写java中任何对象</li>
+<li>他们将对象其结果与一组字节相互转换</li>
+<li><code>java.io.ObjectInputStream(InputStream in)</code></li>
+<li><code>java.io.ObjectInputStream(OutputStream out)</code></li>
+<li>对象所属的类必须实现序列化接口才可使用对象流，否则会抛出异常</li>
+<li>序列化接口：java.io.Serializable</li>
+<li><code>void writeObject(Object o)</code>和<code>Object readObject()</code></li>
+<li><code>transient</code>关键字，在实现了序列化接口的类中，说明该词修饰的不被转换为对象流</li>
+</ul>
+<h2 id="字符流"><a href="#字符流" class="headerlink" title="字符流"></a>字符流</h2><ul>
+<li><code>abstract java.io.Reader</code>：所有字符输入流的抽象超类，规定了读取字符的相关方法，抽象方法：<code>int read()</code>、<code>int read(char[] chs)</code>等</li>
+<li><code>abstract java.io.Writer</code>：多有字符输出流的抽象超类，规定了写出字符的相关方法，抽象方法：<code>void write(int c);</code>、<code>void write(char[] chs[,int offset,int len])</code>、<code>void write(String str)</code>等</li>
+</ul>
+<h3 id="转换流"><a href="#转换流" class="headerlink" title="转换流"></a>转换流</h3><ul>
+<li>转换流是一对高级流，是字符流的一对实现类</li>
+<li>转换流一般不会作为终端流直接操作，但作为文件流与字符流的转换作用其作用十分重要</li>
+<li><code>java.io.InputStreamReader(InputStream in[,String cs])</code></li>
+<li><code>java.io.OutputStreamWriter(OutputStream out[,String cs])</code></li>
+</ul>
+<h3 id="缓冲字符流"><a href="#缓冲字符流" class="headerlink" title="缓冲字符流"></a>缓冲字符流</h3><ul>
+<li>缓冲字符流是一对高级流，块写加速，按行写文本</li>
+<li><code>java.io.BufferedWriter(Writer out)</code>但是一般使用PrintWriter</li>
+<li><code>java.io.BufferedReader(Reader in)</code></li>
+<li>使用<code>String readLine()</code>方法读取一行数据，读到结束返回null</li>
+</ul>
+<h3 id="行刷新缓冲字符流"><a href="#行刷新缓冲字符流" class="headerlink" title="行刷新缓冲字符流"></a>行刷新缓冲字符流</h3><ul>
+<li>PrintWriter内包含了BufferedWriter且有自动刷新换行功能</li>
+<li><code>java.io.PrintWriter(File file/String fileName/Writer writer/OutputStream out)</code></li>
+<li><code>java.io.PrintWriter(String fileName[,String cs])</code>比较方便常用</li>
+<li><code>java.io.PrintWriter(Writer writer[,boolean autoFlush])</code>打开自动行刷新，每输入一行自动flush()一次</li>
+<li>只有在流连接的构造函数中才有自动行刷新的参数</li>
+<li><code>void println()</code>输出字符串后换行方法</li>
+</ul>
+<h2 id="异常处理、异常API"><a href="#异常处理、异常API" class="headerlink" title="异常处理、异常API"></a>异常处理、异常API</h2><h3 id="异常简介"><a href="#异常简介" class="headerlink" title="异常简介"></a>异常简介</h3><ul>
+<li>Throwable 所有异常的超类</li>
+<li>Error、Exception(RuntimeException/IOException) 两种异常总类</li>
+<li>错误、异常(运行时异常、受检异常)</li>
+<li>使用try-catch-finally语句处理异常，或者throws抛出异常</li>
+<li>finally：无论是否有错都会执行的代码部分，特殊情况如果try/catch中有return,会执行完return后半句,去执行finally后再回来return</li>
+<li>但是System.close(0)并不会执行finally，会立即终止程序</li>
+<li>方法内代码块中可以throw抛出一个自定的异常，RuntimeException不会强制处理</li>
+<li>JDK1.7及以后，try()小括号内可以定义实现了<code>autoCloseable</code>接口的类的实例，这样可以不用写close()方法，编译器编译时改回正常书写方式编译。该编写为编译器认可</li>
+<li>所有的流以及某些类都实现了<code>autocloseable</code>，正常书写方式如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;因为作用域问题，流在try外面声明定义</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">FileOutputStream fos &#x3D; null;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">try &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">	fos &#x3D; new FileOutputStream(&quot;fos.dat&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">	fos.write(1);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">&#125;catch(IOException e) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">	System.out.println(&quot;出错了&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">&#125;finally &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">	try &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        &#x2F;&#x2F;关闭之前判断是否为null</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">		if(fos!&#x3D;null) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">			fos.close();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">		&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    &#125; catch (Exception e) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">		e.printStackTrace();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">	&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h3><ol>
+<li>创建类，定义类名，做到见名知意</li>
+<li>继承Exception或其子类</li>
+<li>由于Exception实现了Serializable，可选定义序列化版本号</li>
+<li>重写Exception定义的所有构造方法</li>
+</ol>
+<h3 id="处理异常方式"><a href="#处理异常方式" class="headerlink" title="处理异常方式"></a>处理异常方式</h3><p>1、JVM执行某句话出现异常<br>2、虚拟机结合情况实例化对应的异常实例<br>3、并将代码执行情况赋值到异常实例中<br>4、然后将异常抛出<br>5、检查catch处理异常的机制<br>6、无catch则继续向外抛出异常<br>7、一直抛出到最后，处理方式为JVM终止程序</p>
+<h2 id="TCP通信"><a href="#TCP通信" class="headerlink" title="TCP通信"></a>TCP通信</h2><h3 id="java-net-Socket"><a href="#java-net-Socket" class="headerlink" title="java.net.Socket"></a>java.net.Socket</h3><ul>
+<li>封装了TCP通讯的传输细节，使得我们使用它就可以完成与远端计算机的TCP连接以及数据传输</li>
+<li>并且完成数据传输是基于两条流的读写</li>
+<li><code>Socket(String host,int port)</code></li>
+<li>Socket实例化的过程就是连接服务端的过程，成功连接则实例化成功，否则会在实例化过程中该抛出异常</li>
+<li>通过<strong>IP地址</strong>找到网络上的服务端所在计算机，通过<strong>端口</strong>找到该机器上的服务端应用程序</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int getLocalPort()</td>
+<td>返回本地连接的端口号</td>
+</tr>
+<tr>
+<td>InetAddress getLocalAddress()</td>
+<td>返回一个InetAddress数据对象，套接字绑定的本地地址</td>
+</tr>
+<tr>
+<td>int getPort()</td>
+<td>返回远端使用的端口号</td>
+</tr>
+<tr>
+<td>InetAddress getInetAddress()</td>
+<td>返回一个InetAddress数据对象，套接字绑定的远端地址</td>
+</tr>
+<tr>
+<td>OutputStream getOutputStream()</td>
+<td>返回字节输出流，其写出的字节流可以通过网络发送到远端</td>
+</tr>
+<tr>
+<td>InputStream getInputStream()</td>
+<td>返回字节输入流，其读取通过网络发送过来的字节流</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>关闭此套接字，同时关闭了输入流与输出流</td>
+</tr>
+</tbody></table>
+<h4 id="java-net-InetAddress"><a href="#java-net-InetAddress" class="headerlink" title="java.net.InetAddress"></a>java.net.InetAddress</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>String getCanonicalHostName()</td>
+<td>获取此IP地址的完全限定域名</td>
+</tr>
+<tr>
+<td>String getHostAddress()</td>
+<td>返回IP地址字符串(文本形式)</td>
+</tr>
+</tbody></table>
+<h3 id="java-net-ServerSocket"><a href="#java-net-ServerSocket" class="headerlink" title="java.net.ServerSocket"></a>java.net.ServerSocket</h3><ul>
+<li>向系统申请服务端口并监听该端口，客户端进行连接时，ServerSocket会自动创建一个Socket与客户端进行交互</li>
+<li><code>ServerSocket(int port)</code></li>
+<li><code>Socket accept()</code>该方法是一个阻塞方法，一直等待一个客户端连接为止，并返回Socket实例，可多次调用进行接收多个客户端的连接</li>
+</ul>
+<h2 id="反射机制"><a href="#反射机制" class="headerlink" title="反射机制"></a>反射机制</h2><h3 id="反射基础"><a href="#反射基础" class="headerlink" title="反射基础"></a>反射基础</h3><h4 id="获取Class对象的方式"><a href="#获取Class对象的方式" class="headerlink" title="获取Class对象的方式"></a>获取Class对象的方式</h4><ol>
+<li>每个类都有一个class属性，通过 类.class 获取Class对象</li>
+<li>每个对象都有getClass()方法，通过 对象.getClass() 获取Class对象</li>
+<li>Class类的静态方法，Class.forName(完整类名) 获取Class对象</li>
+</ol>
+<ul>
+<li>基本数据类型也有Class对应对象，包括void也有</li>
+<li>包装数据类的静态成员TYPE返回对应基本数据类型类：Class&lt;?&gt; cls=Integer.TYPE;</li>
+<li>通过forName()方法获取Class对象时，会把参数指定的类加载到内存中</li>
+</ul>
+<h3 id="java-lang-Class"><a href="#java-lang-Class" class="headerlink" title="java.lang.Class"></a>java.lang.Class</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static Class forName(String className)</td>
+<td>返回与带有给定字符串名的类或接口相关联的 Class 对象</td>
+</tr>
+<tr>
+<td>String getName()</td>
+<td>返回此 Class 对象所表示的实体（类、接口、数组类、基本类型或 void）名称</td>
+</tr>
+<tr>
+<td>String getSimpleName()</td>
+<td>返回此 Class 对象的简单名称</td>
+</tr>
+<tr>
+<td>Method[] getMethods()</td>
+<td>返回一个 Method 对象的数组，每个Method对象表示一个方法</td>
+</tr>
+<tr>
+<td>Method getMethod(String name[Class&lt;?&gt;… parameterTypes])</td>
+<td>返回一个 Method 对象，它反映此 Class 对象所表示的类或接口的指定公共成员方法</td>
+</tr>
+<tr>
+<td>Object newInstance()</td>
+<td>实例化该 Class 对象(仅适用于具有无参构造的类)</td>
+</tr>
+<tr>
+<td>int getModifiers()</td>
+<td>返回一个修饰符，是一个整数，可以通过Modifier类中的静态方法转换<br>Modifier：static String toString(int modifier)</td>
+</tr>
+<tr>
+<td>Class&lt;?&gt; getSuperclass()</td>
+<td>返回该 Class 对象父类的 Class 对象</td>
+</tr>
+<tr>
+<td>Class&lt;?&gt;[] getInterfaces()</td>
+<td>返回该 Class 对象实现的接口数组</td>
+</tr>
+<tr>
+<td>Filed getField(String field)</td>
+<td>获取名为field的字段的值(只能返回公共字段)，可以通过Field对象操作<br>Field：void set(Object obj, Object value)<br>Filed：Object get(Object obj) 对Object对象Field属性值的操作</td>
+</tr>
+<tr>
+<td>Filed getDeclareField(String field)</td>
+<td>获取名为field的字段的值(可以返回任意访问权限字段，但只能返回不能访问)<br>Filed：void setAccessible(boolean canAccess) 设置为true时可以访问私有字段值</td>
+</tr>
+</tbody></table>
+<h3 id="java-lang-reflect-Method"><a href="#java-lang-reflect-Method" class="headerlink" title="java.lang.reflect.Method"></a>java.lang.reflect.Method</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>String getName()</td>
+<td>返回该Method所指方法的方法名</td>
+</tr>
+<tr>
+<td>Object invoke(Object obj[Object… args])</td>
+<td>调用obj对象的该Method对象方法(可传入参数)</td>
+</tr>
+</tbody></table>
+<h2 id="Lambda函数式"><a href="#Lambda函数式" class="headerlink" title="Lambda函数式"></a>Lambda函数式</h2><ul>
+<li>由JDK1.8开始引入的语句，主要是解决了Java缺失函数式编程特点的缺点</li>
+<li>这是编译器认可的语句，编译时会更改为一般代码样式去编译</li>
+<li>其语法为：<code>(参数)-&gt;{方法体}</code></li>
+<li>参数部分：可以为空，表示没有参数；可以多个，表示多个参数；可以不写参数类型，前提是可以推断</li>
+<li>方法体部分：如果方法体内只有一条语句，可以省略花括号{}；但如果这一句是return，则必须把return也省掉</li>
+<li>特别注意：lambda表达式 与 匿名内部类 this关键字的区别！！–&gt;前者的this表示外部类，后者的this表示匿名类</li>
+<li>常用在实现只含有一个抽象方法的接口的时候，Java中 某些接口在类声明上方有个注解 @FunctionalInterface 说明该接口可以用Lambda表达式，没有标注也不一定不可以</li>
+</ul>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>Java基础-JavaSE(上)</p>
+    
+    <p><span class="copy-title">本文作者:</span><a  title="John Doe">John Doe</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-11-11, 08:00:03</p>
+    <p><span class="copy-title">最后更新:</span>2019-11-25, 08:40:04</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/11/11/Java%E5%9F%BA%E7%A1%80-JavaSE(%E4%B8%8A)/" title="Java基础-JavaSE(上)">http://yoursite.com/2019/11/11/Java%E5%9F%BA%E7%A1%80-JavaSE(%E4%B8%8A)/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 Yelog</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#Java','#HTTP','#Web','#Eclipse','#blog','#MarkDown','#tools','#Environment','#CSS','#HTML','#JS','#JQ','#XML','#Hardware','#feeling','#Assembly','#Bin','#学习笔记',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

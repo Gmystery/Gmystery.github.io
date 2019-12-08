@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Java基础-JavaSE(下) | Hexo</title>
+  <meta name="keywords" content=" Java ">
+  <meta name="description" content="Java基础-JavaSE(下) | Hexo">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Web基础-jQuery语言jQuery简介什么是jQuery jQuery是一个优秀的JavaScript框架，一个轻量级的JS库 它封装了JS、CSS、DOM，提供了一致的、简洁的API 兼容CSS3，以及兼容各种浏览器 注意：jQuery 2.x 开始不再支持IE6&#x2F;7&#x2F;8  如何使用jQuery 引入jQuery的js文件 可以通过本地文件导入，或者通过网络中jQuery的js文件地址 使">
+<meta name="keywords" content="JS,JQ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web基础-jQuery语言">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;Web%E5%9F%BA%E7%A1%80-jQuery%E8%AF%AD%E8%A8%80&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Web基础-jQuery语言jQuery简介什么是jQuery jQuery是一个优秀的JavaScript框架，一个轻量级的JS库 它封装了JS、CSS、DOM，提供了一致的、简洁的API 兼容CSS3，以及兼容各种浏览器 注意：jQuery 2.x 开始不再支持IE6&#x2F;7&#x2F;8  如何使用jQuery 引入jQuery的js文件 可以通过本地文件导入，或者通过网络中jQuery的js文件地址 使">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-03T07:57:24.000Z">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>John Doe</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/yelog" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="facebook" href="https://www.facebook.com/faker.tops" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-facebook"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="instagram" href="https://www.facebook.com/faker.tops" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-instagram"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="reddit" href="https://www.reddit.com/user/yelog/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-reddit"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="weibo" href="http://weibo.com/u/2307534817" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="jianshu" href="https://www.jianshu.com/u/ff56736de7cf" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-jianshu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="zhihu" href="https://www.zhihu.com/people/jaytp/activities" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="oschina" href="https://my.oschina.net/yelog" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-oschina"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="email" href="mailto:jaytp@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="kugou" href="https://www.kugou.com/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-kugou"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="neteasemusic" href="https://music.163.com/#/user/home?id=88151013" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-neteasemusic"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(26)</small></div></li>
+    
+        
+            
+            <li><div data-rel="语言编程">语言编程<small>(14)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="计算机知识">计算机知识<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具环境">工具环境<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="项目练习">项目练习<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="生活记录">生活记录<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="结构算法">结构算法<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="26">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color5">Java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">HTTP</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Web</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">Eclipse</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">blog</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">MarkDown</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">tools</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">Environment</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">CSS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">HTML</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">JS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">JQ</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">XML</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Hardware</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">feeling</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Assembly</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Bin</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">学习笔记</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/JavaEE-Web%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E9%A1%BA%E5%BA%8F/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="JavaEE-Web开发学习顺序">JavaEE-Web开发学习顺序</span>
+            <span class="post-date" title="2019-11-11 08:00:00">2019/11/11</span>
+        </a>
+        
+        <a  class="计算机知识 "
+           href="/2019/11/10/HTTP%E5%8D%8F%E8%AE%AE%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3/"
+           data-tag="HTTP,Web"
+           data-author="" >
+            <span class="post-title" title="HTTP协议简单理解">HTTP协议简单理解</span>
+            <span class="post-date" title="2019-11-10 08:35:25">2019/11/10</span>
+        </a>
+        
+        <a  class="工具环境 "
+           href="/2019/11/01/Eclipse%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E4%B8%8E%E7%BB%8F%E9%AA%8C/"
+           data-tag="Java,Eclipse"
+           data-author="" >
+            <span class="post-title" title="Eclipse使用技巧与经验">Eclipse使用技巧与经验</span>
+            <span class="post-date" title="2019-11-01 07:34:39">2019/11/01</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java内存管理">Java内存管理</span>
+            <span class="post-date" title="2019-11-11 07:32:31">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%9F%BA%E7%A1%80-JavaSE(%E4%B8%8B)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java基础-JavaSE(下)">Java基础-JavaSE(下)</span>
+            <span class="post-date" title="2019-11-11 08:00:04">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%9F%BA%E7%A1%80-JavaSE(%E4%B8%8A)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java基础-JavaSE(上)">Java基础-JavaSE(上)</span>
+            <span class="post-date" title="2019-11-11 08:00:03">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%9F%BA%E7%A1%80-%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80(Basic)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java基础-语言基础(Basic)">Java基础-语言基础(Basic)</span>
+            <span class="post-date" title="2019-11-11 08:00:01">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Java%E5%9F%BA%E7%A1%80-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1(OOP)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java基础-面向对象(OOP)">Java基础-面向对象(OOP)</span>
+            <span class="post-date" title="2019-11-11 08:00:02">2019/11/11</span>
+        </a>
+        
+        <a  class="项目练习 "
+           href="/2019/11/23/Java%E5%AE%9E%E8%B7%B5-%E8%81%8A%E5%A4%A9%E5%AE%A4(C-S%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B)/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java实践-聊天室(C/S网络编程)">Java实践-聊天室(C/S网络编程)</span>
+            <span class="post-date" title="2019-11-23 09:25:17">2019/11/23</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/23/Java%E5%AE%9E%E8%B7%B5-WebServer(%E4%BB%BFTomcat)/"
+           data-tag="Java,Web"
+           data-author="" >
+            <span class="post-title" title="Java实践-WebServer(仿Tomcat)">Java实践-WebServer(仿Tomcat)</span>
+            <span class="post-date" title="2019-11-23 11:45:17">2019/11/23</span>
+        </a>
+        
+        <a  class="项目练习 "
+           href="/2019/11/22/Java%E5%AE%9E%E8%B7%B5-%E9%A3%9E%E6%9C%BA%E5%A4%A7%E6%88%98/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java实践-飞机大战">Java实践-飞机大战</span>
+            <span class="post-date" title="2019-11-22 21:22:46">2019/11/22</span>
+        </a>
+        
+        <a  class="项目练习 "
+           href="/2019/11/22/Java%E7%BB%83%E4%B9%A0-%E9%9A%8F%E6%9C%BA%E8%AF%BB%E5%86%99-%E9%A1%BA%E5%BA%8F%E8%AF%BB%E5%86%99/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java练习-随机读写/顺序读写">Java练习-随机读写/顺序读写</span>
+            <span class="post-date" title="2019-11-22 22:45:17">2019/11/22</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/09/15/MarkDown%E9%80%9A%E7%94%A8%E8%AF%AD%E6%B3%95/"
+           data-tag="blog,MarkDown"
+           data-author="" >
+            <span class="post-title" title="MarkDown通用语法">MarkDown通用语法</span>
+            <span class="post-date" title="2019-09-15 09:20:39">2019/09/15</span>
+        </a>
+        
+        <a  class="工具环境 "
+           href="/2019/11/11/Maven%E5%85%A5%E9%97%A8%E4%B8%8E%E8%AE%A4%E8%AF%86/"
+           data-tag="tools,Environment"
+           data-author="" >
+            <span class="post-title" title="Maven入门与认识">Maven入门与认识</span>
+            <span class="post-date" title="2019-11-11 11:30:00">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Web%E5%9F%BA%E7%A1%80-CSS%E8%AF%AD%E8%A8%80/"
+           data-tag="Web,CSS"
+           data-author="" >
+            <span class="post-title" title="Web基础-CSS语言">Web基础-CSS语言</span>
+            <span class="post-date" title="2019-11-11 08:00:06">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/11/Web%E5%9F%BA%E7%A1%80-HTML%E8%AF%AD%E8%A8%80/"
+           data-tag="Web,HTML"
+           data-author="" >
+            <span class="post-title" title="Web基础-HTML语言">Web基础-HTML语言</span>
+            <span class="post-date" title="2019-11-11 08:00:05">2019/11/11</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/29/Web%E5%9F%BA%E7%A1%80-JavaScript%E8%AF%AD%E8%A8%80/"
+           data-tag="JS"
+           data-author="" >
+            <span class="post-title" title="Web基础-JavaScript语言">Web基础-JavaScript语言</span>
+            <span class="post-date" title="2019-11-29 09:05:20">2019/11/29</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/12/02/Web%E5%9F%BA%E7%A1%80-jQuery%E8%AF%AD%E8%A8%80/"
+           data-tag="JS,JQ"
+           data-author="" >
+            <span class="post-title" title="Web基础-jQuery语言">Web基础-jQuery语言</span>
+            <span class="post-date" title="2019-12-02 11:44:24">2019/12/02</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/11/15/XML%E5%8F%AF%E6%89%A9%E5%B1%95%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80/"
+           data-tag="XML"
+           data-author="" >
+            <span class="post-title" title="XML可扩展标记语言">XML可扩展标记语言</span>
+            <span class="post-date" title="2019-11-15 18:17:00">2019/11/15</span>
+        </a>
+        
+        <a  class="项目练习 "
+           href="/2019/09/15/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA-Hexo%E6%A1%86%E6%9E%B6/"
+           data-tag="blog"
+           data-author="" >
+            <span class="post-title" title="个人博客搭建-Hexo框架">个人博客搭建-Hexo框架</span>
+            <span class="post-date" title="2019-09-15 09:19:39">2019/09/15</span>
+        </a>
+        
+        <a  class="计算机知识 "
+           href="/2019/09/15/%E5%85%B3%E4%BA%8EUEFI%E4%B8%8EBIOS%E4%BB%A5%E5%8F%8AUEFI%E5%90%AF%E5%8A%A8%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F/"
+           data-tag="Hardware"
+           data-author="" >
+            <span class="post-title" title="关于UEFI与BIOS以及UEFI启动安装系统">关于UEFI与BIOS以及UEFI启动安装系统</span>
+            <span class="post-date" title="2019-09-15 10:20:39">2019/09/15</span>
+        </a>
+        
+        <a  class="生活记录 "
+           href="/2019/09/14/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/"
+           data-tag="blog,feeling"
+           data-author="" >
+            <span class="post-title" title="我的第一个博客">我的第一个博客</span>
+            <span class="post-date" title="2019-09-14 09:35:43">2019/09/14</span>
+        </a>
+        
+        <a  class="语言编程 "
+           href="/2019/10/11/%E6%B1%87%E7%BC%96%E7%AC%94%E8%AE%B0(Assembly%20note)/"
+           data-tag="Hardware,Assembly"
+           data-author="" >
+            <span class="post-title" title="汇编语言语法笔记-Assembly">汇编语言语法笔记-Assembly</span>
+            <span class="post-date" title="2019-10-11 10:32:31">2019/10/11</span>
+        </a>
+        
+        <a  class="计算机知识 "
+           href="/2019/10/16/%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E5%82%A8%E5%AD%98%E4%B8%8E%E8%BF%90%E7%AE%97%E8%BF%87%E7%A8%8B/"
+           data-tag="Bin"
+           data-author="" >
+            <span class="post-title" title="浮点数的储存与运算过程">浮点数的储存与运算过程</span>
+            <span class="post-date" title="2019-10-16 09:35:43">2019/10/16</span>
+        </a>
+        
+        <a  class="计算机知识 "
+           href="/2019/10/16/%E7%A0%81%E8%A1%A8-ASC%E2%85%A1%E3%80%81Unicode%E3%80%81GBK/"
+           data-tag="Bin"
+           data-author="" >
+            <span class="post-title" title="码表-ASCⅡ、Unicode、GBK">码表-ASCⅡ、Unicode、GBK</span>
+            <span class="post-date" title="2019-10-16 09:34:43">2019/10/16</span>
+        </a>
+        
+        <a  class="结构算法 "
+           href="/2019/11/28/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%AC%94%E8%AE%B0/"
+           data-tag="学习笔记"
+           data-author="" >
+            <span class="post-title" title="线性代数笔记">线性代数笔记</span>
+            <span class="post-date" title="2019-11-28 08:00:00">2019/11/28</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-Java基础-JavaSE(下)" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Java基础-JavaSE(下)</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="语言编程">语言编程</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color5">Java</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-11-26 16:23:52'>2019-11-11 08:00</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java基础-JavaSE-下"><span class="toc-text">Java基础-JavaSE(下)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#多线程基础"><span class="toc-text">多线程基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建线程的方法"><span class="toc-text">创建线程的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-lang-Thread"><span class="toc-text">java.lang.Thread</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线程生命周期"><span class="toc-text">线程生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#新建状态New"><span class="toc-text">新建状态New</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#就绪状态Runnable"><span class="toc-text">就绪状态Runnable</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#运行状态Running"><span class="toc-text">运行状态Running</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#阻塞状态Blocked"><span class="toc-text">阻塞状态Blocked</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#死亡状态Terminated"><span class="toc-text">死亡状态Terminated</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线程同步锁"><span class="toc-text">线程同步锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Timer计时器类"><span class="toc-text">Timer计时器类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程池技术"><span class="toc-text">线程池技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#线程池简介"><span class="toc-text">线程池简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线程池相关类与接口"><span class="toc-text">线程池相关类与接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ThreadPoolExecutor构造含义"><span class="toc-text">ThreadPoolExecutor构造含义</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#其运行过程"><span class="toc-text">其运行过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ThreadPoolExecutor内部原理剖析"><span class="toc-text">ThreadPoolExecutor内部原理剖析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集合Collection"><span class="toc-text">集合Collection</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#java-util-Collection"><span class="toc-text">java.util.Collection</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-util-Iterator"><span class="toc-text">java.util.Iterator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-util-List"><span class="toc-text">java.util.List</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-util-Set"><span class="toc-text">java.util.Set</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-util-TreeSet"><span class="toc-text">java.util.TreeSet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-util-Queue"><span class="toc-text">java.util.Queue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-util-Deque"><span class="toc-text">java.util.Deque</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-util-Collections"><span class="toc-text">java.util.Collections</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集合Map"><span class="toc-text">集合Map</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#java-util-Map"><span class="toc-text">java.util.Map</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-util-HashMap-HashTable"><span class="toc-text">java.util.HashMap/HashTable</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HashMap工作原理"><span class="toc-text">HashMap工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#hashmap-put-“key”-value"><span class="toc-text">hashmap.put(“key”,value)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#hashmap-get-“key”"><span class="toc-text">hashmap.get(“key”)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#装载因子HashMap优化"><span class="toc-text">装载因子HashMap优化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HashMap与HashTable的对比"><span class="toc-text">HashMap与HashTable的对比</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-util-properties"><span class="toc-text">java.util.properties</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-util-TreeMap"><span class="toc-text">java.util.TreeMap</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#涉及到的专业术语"><span class="toc-text">涉及到的专业术语</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java基础-JavaSE-下"><a href="#Java基础-JavaSE-下" class="headerlink" title="Java基础-JavaSE(下)"></a>Java基础-JavaSE(下)</h1><h2 id="多线程基础"><a href="#多线程基础" class="headerlink" title="多线程基础"></a>多线程基础</h2><ul>
+<li>主线程：JVM启动主线程,主线程运行main()方法</li>
+<li>用户线程：开启的新的线程，也称为子线程。子线程默认优先级为父线程优先级</li>
+<li>守护线程：守护线程是为其他线程提供服务的线程，不能独立运行，当JVM中只有守护线程时，守护线程全部结束，JVM退出</li>
+</ul>
+<h3 id="创建线程的方法"><a href="#创建线程的方法" class="headerlink" title="创建线程的方法"></a>创建线程的方法</h3><ul>
+<li><p>通过继承Thread类，重写run()方法，实例化创建线程</p>
+</li>
+<li><p>通过实现Runnable接口，重写run()方法，实例化Thread时传入Thread的构造函数</p>
+</li>
+<li><p>一般使用以上两种，还有一种如下，但不常用，一般用在线程池</p>
+</li>
+<li><p>通过实现Callable<T>接口，重写call()方法；call()方法相比run()方法有返回值，通过Callable的泛型指定返回值类型</p>
+<ul>
+<li>不可以直接实例化Thread时传入Thread的构造函数，因为自己并不继承Runnable接口</li>
+<li>通过FutureTask<T>类，将自己的实例对象传入到Thread的构造方法中(因为FutureTask<T>类实现了Runnable接口)</li>
+<li>创建时构造函数传入Callable的实现类对象<code>FutureTask&lt;T&gt; task = new FutureTask&lt;&gt;(Callable的实现类对象)</code> 通过调用<code>task.get()</code>方法，获得返回结果<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Callable&lt;String&gt; callable &#x3D; new Callable&lt;&gt;()&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    public String call()throws Exception&#123;return &quot;&quot;;&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&#125;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">FutureTask&lt;T&gt; task &#x3D; new FutureTask&lt;&gt;(callable);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">Thread t &#x3D; new Thread(task);</span></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>Runnable接口</code>与<code>Callable&lt;T&gt;接口</code>的区别：1.Callable主要用在线程池；2.在于不同执行体的方法：run()与call(),前者没有返回值且不抛出异常，后者有返回值且抛出异常</p>
+</li>
+</ul>
+<h3 id="java-lang-Thread"><a href="#java-lang-Thread" class="headerlink" title="java.lang.Thread"></a>java.lang.Thread</h3><ul>
+<li>优先级，1-10级，10最高，类中提供3个敞亮表示低高默认</li>
+<li>Thread.MIN_PRIORITY/Thread.MAX_PRIORITY/Thread.NORM_PRIORITY</li>
+<li><code>Thread(ThreadGroup GroupName,Runnable target,String name)</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>long getId()</td>
+<td>返回该线程的标识符(标识符是唯一的)</td>
+</tr>
+<tr>
+<td>String getName()</td>
+<td>返回该线程的名称</td>
+</tr>
+<tr>
+<td>int getPriority()</td>
+<td>返回线程的优先级</td>
+</tr>
+<tr>
+<td>void setPriority(int priority)</td>
+<td>设置线程的优先级</td>
+</tr>
+<tr>
+<td>static int activeCount()</td>
+<td>返回当前活动线程的数量</td>
+</tr>
+<tr>
+<td>static Thread currentThread()</td>
+<td>返回当前线程</td>
+</tr>
+<tr>
+<td>Thread.state getState()</td>
+<td>获取当前线程的状态，可以拼接字符串使用</td>
+</tr>
+<tr>
+<td>boolean isAlive()</td>
+<td>新建、死亡返回false；就绪、运行、阻塞返回true</td>
+</tr>
+<tr>
+<td>boolean isDaemon()</td>
+<td>测试线程是否为守护线程</td>
+</tr>
+<tr>
+<td>static void sleep(long millis)</td>
+<td>静态方法，线程休眠，有中断异常会被interrupt()方法中断</td>
+</tr>
+<tr>
+<td>void interrupt()</td>
+<td>中断线程，中断处于睡眠/等待中的线程</td>
+</tr>
+<tr>
+<td>static boolean interrupt()</td>
+<td>测试线程是否被中断</td>
+</tr>
+<tr>
+<td>boolean isInterrupted()</td>
+<td>测试线程是否已经被中断</td>
+</tr>
+<tr>
+<td>void setDaemon(boolean b)</td>
+<td>将调用该方法的线程设置为守护进程，只能在start()方法之前使用，否则无效</td>
+</tr>
+<tr>
+<td>void join()</td>
+<td>线程加入，等待调用该方法的线程执行完毕后，当前线程再继续执行</td>
+</tr>
+<tr>
+<td>static void yield()</td>
+<td>线程让步，主动让出CPU，当前进程进入就绪状态，重新争取CPU使用权(可能还是它)</td>
+</tr>
+<tr>
+<td>ClassLoader getContextClassLoader()</td>
+<td>返回线程的上下文加载器</td>
+</tr>
+<tr>
+<td>void run()</td>
+<td>线程执行体</td>
+</tr>
+<tr>
+<td>void start()</td>
+<td>开启线程</td>
+</tr>
+<tr>
+<td>void stop()</td>
+<td>终止线程，过时语法，不建议使用</td>
+</tr>
+</tbody></table>
+<ul>
+<li>wait([long timeout])、notify()、notifyAll()方法是Object类的方法，他们需要在同步代码块中，通过锁对象调用</li>
+<li>如果调用wait()包含超时时间的方法，则时间过后会抛出超时异常</li>
+<li>Thread.state：枚举定义的数据类型，包含：NEW、RUNNABLE、BLOCKED、WAITTING、TIMED_WATTING、TERMINATED</li>
+<li>BLOCKED：等待锁对象时的状态。WAITTING：wait和join方法没有超时时。TIMED_WATTING：sleep方法或wait和join方法超时时</li>
+</ul>
+<h3 id="线程生命周期"><a href="#线程生命周期" class="headerlink" title="线程生命周期"></a>线程生命周期</h3><ul>
+<li>Java线程的生命周期存在：创建（<strong>New</strong>）、就绪（<strong>Runnable</strong>）、运行（<strong>Running</strong>）、阻塞（<strong>Blocked</strong>）和死亡（<strong>Terminated</strong>）五种状态</li>
+<li>新建–&gt;就绪&lt;–&gt;运行–&gt;死亡</li>
+<li>就绪&lt;–阻塞&lt;–运行</li>
+</ul>
+<h4 id="新建状态New"><a href="#新建状态New" class="headerlink" title="新建状态New"></a>新建状态New</h4><ul>
+<li>使用new关键字新建一个线程后，处于新建状态，仅仅分配了内存，线程对象不会表现出任何线程的动态特征</li>
+<li>新建状态的线程不可以重复调用start()方法，否则报错IllegalThreadStateException</li>
+</ul>
+<h4 id="就绪状态Runnable"><a href="#就绪状态Runnable" class="headerlink" title="就绪状态Runnable"></a>就绪状态Runnable</h4><ul>
+<li>当对象调用了start()方法后，线程进入就绪状态，等待线程调度</li>
+<li>注意：start()只表明线程准备完毕，并不一定立即执行</li>
+</ul>
+<h4 id="运行状态Running"><a href="#运行状态Running" class="headerlink" title="运行状态Running"></a>运行状态Running</h4><ul>
+<li>当就绪状态线程获取到了CPU后进入运行状态</li>
+<li>运行状态会执行run()方法，执行run()方法内的代码块</li>
+</ul>
+<h4 id="阻塞状态Blocked"><a href="#阻塞状态Blocked" class="headerlink" title="阻塞状态Blocked"></a>阻塞状态Blocked</h4><ul>
+<li>线程调用sleep()方法、join()方法，使线程进入等待状态(等待时间/线程执行完毕)</li>
+<li>调用wait()方法使对象进入等待池(释放锁对象)，当调用notify()方法、notifyAll()方法，线程进入等待锁对象池</li>
+<li>线程试图获得一个同步监视器，但该监视器被其他线程持有，线程进入等待同步锁对象池，进入阻塞状态(BLOCKED)</li>
+<li>线程调用了一个阻塞式IO方法，在该方法返回以前，该线程被阻塞</li>
+<li>线程调用suspend()方法将该线程挂起。但这个方法容易导致死锁，不建议使用。后期使用resume()方法可以恢复</li>
+</ul>
+<h4 id="死亡状态Terminated"><a href="#死亡状态Terminated" class="headerlink" title="死亡状态Terminated"></a>死亡状态Terminated</h4><ul>
+<li>run()/call()方法执行完成，线程正常结束</li>
+<li>线程抛出一个未捕获的Exception或Error</li>
+<li>直接调用线程的stop()方法结束该线程——该方法容易导致死锁，通常不建议使用</li>
+<li>死亡状态的线程不可以再调用start()方法，否则报错IllegalThreadStateException</li>
+</ul>
+<h3 id="线程同步锁"><a href="#线程同步锁" class="headerlink" title="线程同步锁"></a>线程同步锁</h3><ul>
+<li>多个线程同时访问修改：栈区(实例变量)、方法区(静态变量)</li>
+<li>使用关键字<code>synchronized</code>实现同步</li>
+<li>同步代码块：<code>synchronized(同步监视器对象) {需要多线程同步执行的代码片段}</code></li>
+<li>同步方法：synchronized作为修饰词修饰方法，默认同步监视器对象为this</li>
+<li>同步监视器常使用常量作为锁对象，有时使用this或当前类对象作为锁对象</li>
+<li>同步监视器为this时，同步为对象同步，但是静态方法上的synchronized是类同步(监视器对象为该类的类对象)</li>
+<li>注意:静态方法中的同步代码块指定的同步监视器对象不能用this，一般使用Boo.class</li>
+</ul>
+<h3 id="Timer计时器类"><a href="#Timer计时器类" class="headerlink" title="Timer计时器类"></a>Timer计时器类</h3><ul>
+<li>构造方法：无参构造 或 传入布尔值构造，布尔为true时设置定时器为守护线程</li>
+<li>方法：<code>timer.schedule(task,time)</code> 在指定的时间time实行任务task</li>
+<li>方法：<code>timer.schedule(task,delay)</code> 延迟dalay毫秒后，执行任务task</li>
+<li>方法：<code>timer.schedule(task,firstTime,period)</code> 指定task任务第一次执行的时间，以后每间隔period执行一次task</li>
+</ul>
+<h2 id="线程池技术"><a href="#线程池技术" class="headerlink" title="线程池技术"></a>线程池技术</h2><h3 id="线程池简介"><a href="#线程池简介" class="headerlink" title="线程池简介"></a>线程池简介</h3><ul>
+<li>线程在Java中是一个对象，每一个Java线程都需要一个操作系统线程支持</li>
+<li>线程创建、销毁需要时间，如果 创建时间+销毁时间&gt;执行任务时间 就很不合算</li>
+<li>系统调度频繁切换上下文，过多线程的调度影响性能，所以要使用线程池技术</li>
+<li>线程池常用在tomcat、dubbo、spring等</li>
+</ul>
+<h3 id="线程池相关类与接口"><a href="#线程池相关类与接口" class="headerlink" title="线程池相关类与接口"></a>线程池相关类与接口</h3><ul>
+<li>java.util.concurrent.Executors（类）:是线程池的一个工具类，常用<code>static ExecutorService newFixedThreadPool(int nThreads)</code>创建固定最大数量的线程池</li>
+<li>java.util.concurrent.Executor（接口）：是线程池的顶级接口，内部只有一个抽象方法 <code>void execute(Runnable command)</code></li>
+<li>java.util.concurrent.ExecutorService（接口）：继承上面这个接口</li>
+<li>java.util.concurrent.ThreadPoolExecutor（类）：实现了以上两个接口，构造方法 corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue</li>
+</ul>
+<h3 id="ThreadPoolExecutor构造含义"><a href="#ThreadPoolExecutor构造含义" class="headerlink" title="ThreadPoolExecutor构造含义"></a>ThreadPoolExecutor构造含义</h3><ul>
+<li>java.util.concurrent.ThreadPoolExecutor（类）：构造方法 corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue</li>
+<li>例：<code>ThreadPoolExecutor pool = new ThreadPoolExecutor(5, 10, 3, TimeUnit.SECONDS, new LinkedBlockingQueue&lt;Runnable&gt;(10));</code></li>
+<li>建立了一个线程池，其中：核心线程数5 最大线程数10 线程存活时间3 存活时间单位second 任务队列最大长度为10</li>
+<li>使用其重写Executor接口的<code>void execute(Runnable command)</code>方法，向任务队列中添加任务</li>
+</ul>
+<h4 id="其运行过程"><a href="#其运行过程" class="headerlink" title="其运行过程"></a>其运行过程</h4><ul>
+<li>当任务队列数量没有达到队列最大值时，最多运行的线程数为5</li>
+<li>当任务队列数量达到队列最大值时，此时开始启用临时线程，但控制所有线程数量最多为10<ul>
+<li>当临时线程没有任务时，存活3s，销毁掉临时线程，核心线程一直存在</li>
+</ul>
+</li>
+<li>特殊的：如果任务投入超过队列最大长度，且此时线程总数已经达到了最大线程数，则再进入的任务，线程池拒绝服务(抛出异常)</li>
+<li>比如这个例子中：execute 10个任务，会启用5个线程；execute 20个任务，会启用10个线程；execute 超过20个任务，则从第21个任务开始决绝服务</li>
+</ul>
+<h3 id="ThreadPoolExecutor内部原理剖析"><a href="#ThreadPoolExecutor内部原理剖析" class="headerlink" title="ThreadPoolExecutor内部原理剖析"></a>ThreadPoolExecutor内部原理剖析</h3><ul>
+<li>内部类worker继承Thread来创建线程</li>
+<li>worker内部的线程任务，通过不停的调用自身<code>run()</code>方法进行循环</li>
+<li>循环过程中通过绝对线程安全Queue队列的<code>take()</code>阻塞方法，等待取出任务 new 自己 进行执行该任务</li>
+<li><code>execute()</code>方法中含有判断队列，线程数等方法，new worker 或者 向队列插入 task任务</li>
+</ul>
+<h2 id="集合Collection"><a href="#集合Collection" class="headerlink" title="集合Collection"></a>集合Collection</h2><ul>
+<li>JDK1.5新增特性For each，泛型都是编译器认可，源码中foreach还是迭代器，泛型还是会造型操作</li>
+<li>泛型只能使用引用数据类型，如果是基本数据类型使用包装类</li>
+<li>Arrays类中 static List asList()方法，将数组作为List操作，所以：<ul>
+<li>集合只能引用数据类型，不能使用基本数据类型（byte,short,int,long,float,double,boolean）</li>
+<li>因为是将数组作为List操作，该方法将数组与列表连接起来，Map或Array操作他们其中之一时，相当于也在操作另一个(数据相通)</li>
+<li>又因为数组是定长的，所以List不支持add和remove方法</li>
+</ul>
+</li>
+</ul>
+<h3 id="java-util-Collection"><a href="#java-util-Collection" class="headerlink" title="java.util.Collection"></a>java.util.Collection</h3><ul>
+<li>Colletion接口实现Iterator接口，下面有两个常用的子接口：java.util.List、java.util.Set</li>
+<li>Collection是集合框架顶级接口，里面定义了所有集合都应当具备的相关操作方法</li>
+<li>构造方法中可以直接传入一个Collection,将传入的集合的元素传入新建的集合中</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean add(E e)</td>
+<td>向集合添加给定元素，成功返回true</td>
+</tr>
+<tr>
+<td>int size()</td>
+<td>返回当前集合的元素个数</td>
+</tr>
+<tr>
+<td>boolean isEmpty()</td>
+<td>是否为空集，当集合不含有任何原属时为空集(并非集合为null)</td>
+</tr>
+<tr>
+<td>void clear()</td>
+<td>清空当前元素</td>
+</tr>
+<tr>
+<td>boolean contains(Object o)</td>
+<td>根据equals查找有没有该元素</td>
+</tr>
+<tr>
+<td>boolean remove(Object o)</td>
+<td>根据equals删除该元素(如果为list只删除第一个)</td>
+</tr>
+<tr>
+<td>boolean addAll(collection c)</td>
+<td>将给定集合中的所有元素添加到当前集合,Set中不会重复</td>
+</tr>
+<tr>
+<td>boolean containsAll(collection c)</td>
+<td>判断当前集合是否包含给定集合中的所有元素</td>
+</tr>
+<tr>
+<td>boolean removeAll(Collection c)</td>
+<td>删除当前集合中与给定集合的共有元素,参数给定的集合元素不受影响</td>
+</tr>
+<tr>
+<td>Iterator iterator()</td>
+<td>该方法返回一个Iterator的实现类，迭代器</td>
+</tr>
+<tr>
+<td>Object[] toArray()</td>
+<td>该方法可以将集合返回数组，注意为对象数组</td>
+</tr>
+<tr>
+<td>T[] toArray(T[] array)</td>
+<td>将元素存入传入的某类型数组中,并返回</td>
+</tr>
+<tr>
+<td></td>
+<td>数组长度不足则toArray方法另外new数组返回，长度超过则会填null</td>
+</tr>
+</tbody></table>
+<h3 id="java-util-Iterator"><a href="#java-util-Iterator" class="headerlink" title="java.util.Iterator"></a>java.util.Iterator</h3><ul>
+<li>java.util.Iterator 接口</li>
+<li>不同的集合实现类都提供了一个迭代器实现类用于遍历自身元素</li>
+<li>迭代器在集合遍历的过程中是不可以通过<strong>集合的方法</strong>增删元素的</li>
+<li>游标概念：用于指向元素的指针，当新建对象的时候，游标恢复默认</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean hasNext()</td>
+<td>判断是否有下一个元素</td>
+</tr>
+<tr>
+<td>E next()</td>
+<td>获取下一个元素</td>
+</tr>
+<tr>
+<td>void remove()</td>
+<td>删除next()方法取出的元素</td>
+</tr>
+</tbody></table>
+<h3 id="java-util-List"><a href="#java-util-List" class="headerlink" title="java.util.List"></a>java.util.List</h3><ul>
+<li>java.util.List 接口：实现Collection接口，线性表。是一组可以放重复元素的集合，特点是有序，可以通过下标操作元素</li>
+<li>常用实现类：ArrayList,Vector,LinkedList</li>
+<li>List中contains()、remove()等方法都要用到equals()方法，重写必须的</li>
+<li>ArrayList,Vector底层都是数组实现的，新建时长度为10，但扩容时前者扩大1.5倍，后者2倍，并且后者是线程安全的</li>
+<li>LinkedList是链表形式，可以当做List，可以当做Queue/Deque，也可以当做栈使用</li>
+<li>性能要求不大，常用ArrayList，线程安全现在常用CopyOnWriteArrayList类</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E get(int i)</td>
+<td>获取指定下标处对应的元素</td>
+</tr>
+<tr>
+<td>E set(int index,E e)</td>
+<td>将给定的元素设置到指定位置，返回值为原位置对应的元素（替换元素操作）</td>
+</tr>
+<tr>
+<td>void add(int index,E e)</td>
+<td>将给定元素插入到指定位置</td>
+</tr>
+<tr>
+<td>E remove(int index)</td>
+<td>删除并返回给定位置的元素</td>
+</tr>
+<tr>
+<td>List subList(int fromIndex, int toIndex)</td>
+<td>List可以返回指定范围内的子集[的引用],更改后原集合也会改动</td>
+</tr>
+<tr>
+<td>subList()特性</td>
+<td>快速去除中间某段元素，可以使用subList()获取子集后clear()</td>
+</tr>
+</tbody></table>
+<h3 id="java-util-Set"><a href="#java-util-Set" class="headerlink" title="java.util.Set"></a>java.util.Set</h3><ul>
+<li>java.util.Set 接口：实现Collection接口，不可重复集.大部分实现类是无序的，常用类：HashSet</li>
+<li>无序：添加顺序有可能和排列顺序不同</li>
+<li>Set与HashSet并没有其他特殊方法，HashSet的底层其实是HashMap，将值添加到Key中</li>
+</ul>
+<h3 id="java-util-TreeSet"><a href="#java-util-TreeSet" class="headerlink" title="java.util.TreeSet"></a>java.util.TreeSet</h3><ul>
+<li>java.util.TreeSet 类：Set接口&lt;–SortedSet接口&lt;–NavigableSet接口&lt;–TreeSet类</li>
+<li>TreeSet具有元素自然排序的集合，所以在创建时可以添加一个比较器(优先) 或 添加的元素都实现了Comparable接口</li>
+<li>TreeSet的底层其实是TreeMap，将值添加到Key中</li>
+<li>注意：因为Set不可添加相同元素，TreeSet中会根据<font color="red">排序结果</font>是否相同判断是否为相同元素</li>
+</ul>
+<h3 id="java-util-Queue"><a href="#java-util-Queue" class="headerlink" title="java.util.Queue"></a>java.util.Queue</h3><ul>
+<li>java.util.Queue 接口(队列)：实现Collection接口，规定了队列出入队的相关方法，队列储存元素必须遵循先进先出原则，常用类：LinkedList</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean offer()</td>
+<td>入队操作,添加元素的方法</td>
+</tr>
+<tr>
+<td>E poll()</td>
+<td>出队操作,将队首元素移除并返回</td>
+</tr>
+<tr>
+<td>E pick()</td>
+<td>引用队首元素</td>
+</tr>
+</tbody></table>
+<h3 id="java-util-Deque"><a href="#java-util-Deque" class="headerlink" title="java.util.Deque"></a>java.util.Deque</h3><ul>
+<li>java.util.Deque 接口(双端队列)：实现Queue接口，是两段都可以做进出队的队列。常用实现类：LinkedList</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean offerFirst()</td>
+<td>入队操作,从队首添加元素的方法</td>
+</tr>
+<tr>
+<td>boolean offerLast()</td>
+<td>入队操作,从队尾添加元素的方法(等同offer)</td>
+</tr>
+<tr>
+<td>E pollFirst()</td>
+<td>出队操作,将队首元素移除并返回(等同poll)</td>
+</tr>
+<tr>
+<td>E pollLast()</td>
+<td>出队操作,将队尾元素移除并返回</td>
+</tr>
+<tr>
+<td>E pickFirst()</td>
+<td>引用队首元素(等同pick)</td>
+</tr>
+<tr>
+<td>E pickLast()</td>
+<td>引用队尾元素</td>
+</tr>
+<tr>
+<td>如果看做栈</td>
+<td>当做栈来使用的话</td>
+</tr>
+<tr>
+<td>void push()</td>
+<td>入栈操作(等同offerFirst)</td>
+</tr>
+<tr>
+<td>E pop()</td>
+<td>出栈操作(等同poll)</td>
+</tr>
+</tbody></table>
+<h3 id="java-util-Collections"><a href="#java-util-Collections" class="headerlink" title="java.util.Collections"></a>java.util.Collections</h3><ul>
+<li>java.util.Collections 类，是集合框架的工具类</li>
+<li>提供了很多把集合转为线程安全的集合的方法<code>synchronizedXXX(XXX)</code>,但现不常用改用java.until.concurrent包内的线程安全集合，比如：List集合用CopyonWriteArrayList,Set集合用concurrentSkipListSet</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static void sort(List<T> list)</td>
+<td>该方法是用来对List集合进行自然排序的（从小到大<br>排序元素必须实现Comparable接口才可编译通过</td>
+</tr>
+<tr>
+<td>static void sort(List<T> list,Comparator<T> c)</td>
+<td>通过比较器来比较两元素，重写compare方法，返回正负零值代表大小</td>
+</tr>
+</tbody></table>
+<h2 id="集合Map"><a href="#集合Map" class="headerlink" title="集合Map"></a>集合Map</h2><ul>
+<li>查找表Map成对保存数据（key-value对），并且是根据key来获取对用的value，常用Map总实现类：HashMap,TreeMap,LinkedHashMap</li>
+<li><code>Map</code>接口&lt;–<code>ConcurrentMap</code>接口(应用于多线程环境，常用实现类:ConcurrentHashMap)&lt;–<code>ConcurrentNavigableMap</code>接口(具有自然排序功能，其常用实现类:ConcurrentSkipListMap),因为其也实现了<code>NavigableMap</code>接口</li>
+<li><code>Map</code>接口&lt;–<code>SortedMap</code>接口(自然排序功能)&lt;–<code>NavigableMap</code>接口(具有自然排序功能，其常用实现类:TreeMapp)</li>
+<li>不需要根据键排序，一般使用HashMap；需要根据键来排序，一般使用TreeMap</li>
+<li>特别注意自然排序的实例其比较键是否相同是根据比较方法比较后是否为0决定的</li>
+</ul>
+<h3 id="java-util-Map"><a href="#java-util-Map" class="headerlink" title="java.util.Map"></a>java.util.Map</h3><ul>
+<li>java.util.Map 接口，所有查找表的顶级接口，查找表</li>
+<li>常用实现类：<code>HashMap</code>和<code>HashTable</code></li>
+<li>Map没有重复Key元素，如果有重复Key元素，该key对应的value将会被替换</li>
+<li>内部类Entry，具有方法<code>K getKey()</code>、<code>V getValue()</code>、<code>V setValue(V value)</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>V put(K key,V value)</td>
+<td>将给定的key-value对保存到Map中，若key存在返回替换掉的原value,若不重复返回null</td>
+</tr>
+<tr>
+<td>V get(K key)</td>
+<td>根据key获取对应的value，若给定的key在Map中不存在，则返回null</td>
+</tr>
+<tr>
+<td>V remove(Object keyp[,Object value])</td>
+<td>根据给定的key[和value]删除这组键值对，返回为该key对应的value</td>
+</tr>
+<tr>
+<td>V replace(K keyp,V value)</td>
+<td>根据给定的key替换value并返回旧value</td>
+</tr>
+<tr>
+<td>boolean replace(K key,V oldValue,V newValue)</td>
+<td>替换匹配到的&lt;键，值&gt;对</td>
+</tr>
+<tr>
+<td>Set<K> keySet()</td>
+<td>将当前Map中所有的key以一个Set集合形式返回</td>
+</tr>
+<tr>
+<td>Set<Entry> entrySet()</td>
+<td>返回Entry实例，Entry的每一个实例表示当前Map中的一组键值对</td>
+</tr>
+<tr>
+<td>Collection values()</td>
+<td>将当前Map中所有的value以一个集合的形式返回</td>
+</tr>
+<tr>
+<td>boolean containsKey(Object key)</td>
+<td>判断是否包含指定的键</td>
+</tr>
+<tr>
+<td>boolean containsValue(Object value)</td>
+<td>判断是否包含指定的值</td>
+</tr>
+<tr>
+<td>void clear()</td>
+<td>清除所有的&lt;键，值&gt;对</td>
+</tr>
+<tr>
+<td>boolean isEmpty()</td>
+<td>判断是否为空</td>
+</tr>
+<tr>
+<td>int size()</td>
+<td>返回&lt;键，值&gt;对的数量</td>
+</tr>
+</tbody></table>
+<h3 id="java-util-HashMap-HashTable"><a href="#java-util-HashMap-HashTable" class="headerlink" title="java.util.HashMap/HashTable"></a>java.util.HashMap/HashTable</h3><ul>
+<li>java.util.HashMap 类，实现Map接口</li>
+<li>有个常用的子类：java.util.LinkedHashMap，其特点是存储的数据具有顺序性，添加顺序就是存储顺序</li>
+<li>java.util.HashTable 类，实现Map接口</li>
+<li>有个常用的子类：java.util.Properties，其特点是键值对类型都是String,常用作设置/读取属性</li>
+</ul>
+<h4 id="HashMap工作原理"><a href="#HashMap工作原理" class="headerlink" title="HashMap工作原理"></a>HashMap工作原理</h4><ul>
+<li>底层是哈希表(散列表)，哈希就是一个数组，数组的每个元素指向一个单向链表，其储存该单向链表第一个结点的引用</li>
+<li>每个单向链表中有多个结点，每个结点由四部分组成，<code>hash,key,value,next</code>分别是哈希值，键，值，下一个结点的引用</li>
+</ul>
+<h5 id="hashmap-put-“key”-value"><a href="#hashmap-put-“key”-value" class="headerlink" title="hashmap.put(“key”,value)"></a>hashmap.put(“key”,value)</h5><ol>
+<li>根据key的哈希码，即key的hashCode()方法的返回值，计算在数组中的索引值,i=2(如何计算的先不管)</li>
+<li>访问table[i]，如果该元素为null，就会根据&lt;”key”,value&gt;键值对生成一个新的结点，存储到table[i]这个位置</li>
+<li>如果数组中该元素不为null，就会遍历table[i]单向链表中的每个结点<ul>
+<li>当有个结点的键与当前键”key”equals相等，就使用新的值value替换结点原来的value值</li>
+<li>如果遍历完单向链表所有结点都没有匹配的结点，就会创建一个新的结点插入到链表的头部，table[i]储存的引用改为刚刚新结点的引用</li>
+</ul>
+</li>
+</ol>
+<h5 id="hashmap-get-“key”"><a href="#hashmap-get-“key”" class="headerlink" title="hashmap.get(“key”)"></a>hashmap.get(“key”)</h5><ol>
+<li>根据key的哈希码，即key的hashCode()方法的返回值，计算在数组中的索引值,i=2(如何计算的先不管)</li>
+<li>访问table[i]，如果该元素为null，就返null</li>
+<li>如果数组中有table[i]这个元素，则会遍历table[i]中链表的每个结点<ul>
+<li>当有个结点的键与当前键”key”equals相等，就把结点的value值返回</li>
+<li>如果完单向链表中所有结点都没有匹配，就返回null</li>
+</ul>
+</li>
+</ol>
+<h4 id="装载因子HashMap优化"><a href="#装载因子HashMap优化" class="headerlink" title="装载因子HashMap优化"></a>装载因子HashMap优化</h4><ul>
+<li>Capacity：容量，hash表里bucket(桶)的数量，也就是散列数组大小</li>
+<li>Initaial capacity：初始容量，创建hash表时，初始bucket的数量，默认构建容量是16，也可以使用特定数量</li>
+<li>Size：大小，当前散列表中储存数据的数量</li>
+<li>Load factor：加载因子，默认值0.75(就是75%)，当向散列表增加数据时，如果size/capacity的值大于Load factor则发生扩容并重新散列</li>
+<li>性能优化：加载因子较小时，散列查找性能会提高，同时也浪费了散列桶空间容量。0.75时性能和红箭相对平衡的结果。在创建散列表时指定合理容量，减少rehash提高性能</li>
+</ul>
+<h4 id="HashMap与HashTable的对比"><a href="#HashMap与HashTable的对比" class="headerlink" title="HashMap与HashTable的对比"></a>HashMap与HashTable的对比</h4><ol>
+<li>底层都是哈希表(散列表)，HashTable是线程安全的，而HashMap不是线程安全的</li>
+<li>HashMap的父类是AbstractMap，HashTable的父类是Dictionary</li>
+<li>HashMap的默认初始值：16，HashTable的默认初始值：11</li>
+<li>加载因子：0.75，当&lt;键，值&gt;对的数量 大于 数组的容量(哈希桶的容量) * 加载因子时，数组要扩容</li>
+<li>HashMap扩容默认：2倍大小； HashTable扩容：2倍+1</li>
+<li>HashMap的键与值可以为null，HashTable的键与值不能为null</li>
+<li>HashMap在创建时，可以制定一个初始化容量，系统会调整为2的幂次方(比如21会返回32，因为16&lt;21&lt;32)(为了快速计算出数组的下标：2的幂次方减1与hash相与)，HashTable也可以指定初始化容量，系统不调整</li>
+</ol>
+<h3 id="java-util-properties"><a href="#java-util-properties" class="headerlink" title="java.util.properties"></a>java.util.properties</h3><ul>
+<li>java.util.properties 类：是HashTable类的常用子类，特点是键值对类型都是String，其常用作设置/读取属性</li>
+<li>一般单独创建一个资源包(resources)，在该包中添加后缀名为properties配置文件来进行操作，文件中的键值表示为<code>key value/key=value/key:value</code>空格或:或=</li>
+<li>有两个常用方法<code>String getProperties(String key)</code>和<code>Object putProperties(String key, String value)</code>（替换返回旧值，否则null）</li>
+<li>读取配置文件的方法有两种：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Properties properties &#x3D; new Properties()&#x2F;&#x2F;不需要泛型</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">InputStream inStream &#x3D; XXX.class.getResourceAsStream(&quot;&#x2F;XXX&quot;);&#x2F;&#x2F;XXX是src以下的相对路径</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">InputStream inStream &#x3D; Thread.currentThread().getContextClassLoader().getResourceAsStream(&quot;XXX&quot;)&#x2F;&#x2F;注意这个开头没有&quot;&#x2F;&quot;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;以上第一种常为一般用途，第二种常用在多线程中</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">properties.load(inStream)</span></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">ResourceBundle bundle &#x3D; ResourceBundle.getBundle(&quot;XXX&quot;)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;注意这个开头没有&quot;&#x2F;&quot;,且不需要写扩展名，但是文件必须是properties类型</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;关于&quot;&#x2F;&quot;写不写的问题，可以试，如果报错找不到文件，那应该就是路径中&quot;&#x2F;&quot;的问题</span></pre></td></tr></table></figure>
+
+<h3 id="java-util-TreeMap"><a href="#java-util-TreeMap" class="headerlink" title="java.util.TreeMap"></a>java.util.TreeMap</h3><ul>
+<li>TreeMap 类：实现了SortedMap接口，可以根据键自然排序，排序原理是二叉树原理，采用的是中序遍历</li>
+</ul>
+<h2 id="涉及到的专业术语"><a href="#涉及到的专业术语" class="headerlink" title="涉及到的专业术语"></a>涉及到的专业术语</h2><p>这里流连接的操作分别为：</p>
+<ol>
+<li>先将给定对象通过对象流写出，此时对象流会将该对象转换为一组字节这个过程称为<strong>对象序列化</strong></li>
+<li>序列化后的字节再通过文件流写入了文件，即：写入磁盘中，这个过程称为<strong>数据持久化</strong></li>
+<li>签名接口：<code>java.io.Serializable//java.lang.Cloneable</code>编译器敏感，编译器发现时，自动添加功能方法，从而完成功能</li>
+<li>侵入性：当我们使用某个API时，他要求我们为其修改其他额外代码</li>
+</ol>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>Java基础-JavaSE(下)</p>
+    
+    <p><span class="copy-title">本文作者:</span><a  title="John Doe">John Doe</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-11-11, 08:00:04</p>
+    <p><span class="copy-title">最后更新:</span>2019-11-26, 16:23:52</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/11/11/Java%E5%9F%BA%E7%A1%80-JavaSE(%E4%B8%8B)/" title="Java基础-JavaSE(下)">http://yoursite.com/2019/11/11/Java%E5%9F%BA%E7%A1%80-JavaSE(%E4%B8%8B)/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 Yelog</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#Java','#HTTP','#Web','#Eclipse','#blog','#MarkDown','#tools','#Environment','#CSS','#HTML','#JS','#JQ','#XML','#Hardware','#feeling','#Assembly','#Bin','#学习笔记',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
